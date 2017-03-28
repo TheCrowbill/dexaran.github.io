@@ -42,7 +42,8 @@
     var from = web3.eth.coinbase;
     var contractAddress = '0x0e2cec66618f7ca428b1fe01d0de779dbb0f7358';
     var contract = web3.eth.contract(abiArray).at(contractAddress);
-
+    var clockingFunc;
+    var Name1;
 
 
     window.onload = function() {
@@ -226,8 +227,11 @@ try{
 
     function onAddressKeyUp() {
       //alert("executed!");
-      var Name1 = $('#sendtxaddress').val();
-      if(!validateEtherAddress(Name1)){
+      Name1 = $('#sendtxaddress').val();
+
+
+      clockingFunc = setInterval(function(){
+        if(!validateEtherAddress(Name1)){
         contract.getName(Name1, function(error, result){
           if(!error)
             if(validateEtherAddress(result[0]) && (result[0]!=0x0)){
@@ -241,6 +245,10 @@ try{
       else {
         $('#addressvalidate').html('<p class="text-success"><strong> Valid address. </strong></p>');
       }
+
+
+      }, 900);
+      
     }
     
 

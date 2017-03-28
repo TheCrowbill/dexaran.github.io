@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>DeNS browser</title>
+  <title>DexNS</title>
   <link rel="canonical" href="https://github.com/Dexaran" />
-  <meta name="description" content="Powered by Dexaran">
+  <meta name="description" content="Decentralized Naming Service">
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,300,600" rel="stylesheet" type="text/css">
@@ -239,7 +239,6 @@ try{
             if(validateEtherAddress(result[1]) && (result[1]!=0x0)){
               $('#addressvalidate').html('<p class="text-success"><strong> Valid address: ' + result[1] +'</strong></p>');
               if((result[2][0]=='-') && (result[2][1]=='L') && (result[2][2]==' ')) {
-                alert("If Success!");
                 var linkStr = String(result[2]).substring(3);
                 $("#linkstrstatus").show();
                 $("#linkstrstatus").html('<a href="'+ linkStr + '">'+ linkStr + '</a>');
@@ -282,7 +281,7 @@ try{
 <header class="container-fluid bg-navy text-white">
 <section class="container">
   <a href="https://github.com/Dexaran"><img src="images/etherwallet-logo.png" height="95px" width="auto" alt="DX" /></a>
-  <p>Powered by Dexaran</p>
+  <p style="font-size:200%; font-family:verdana; color: black;">Decentralized Naming Service</p>
 </section>
 </header>
 
@@ -293,6 +292,7 @@ try{
     
     <li>               <a id="send-transaction" class="ptabs" showId="paneSendTrans">     Send Transaction  </a></li> 
     <li class="active"> <a id="name-service" class="ptabs" showId="paneName">                      Name              </a></li>
+    <li> <a id="help" class="ptabs" showId="paneHelp">                            Help              </a></li>
   </ul>
 </section>
 <br />
@@ -488,11 +488,92 @@ try{
 
 
 
+    <div class="tab-pane" id="paneHelp" style="display: none;">
+  <h2> Help </h2>
+    <p>DexNS is not "web wallet". You do not create an account or give it your Ether to hold onto. All data is created on your computer/your browser, not our servers. It's not a website where you put your Ether and it store them for you.</p>
+
+
+  <h3> What is DexNS? </h3>
+  <p> DexNS (or Decentralized Naming Service) is an open sourcecode <a href="https://github.com/Dexaran/DNS">smart-contract</a> allowing users to associate their addresses with 'Names'.</p>
+  <p> 'Name' is a key-phrase matched with Name owner address. Each Name can be connected with one address and one text value. If you want to associate your name with a link use '-L ' characters pattern before link text (without quotes). Each address can own unlimited amount of Names. You can register every Name you want directly via contract or by DexNS web interface. To browse already existing Names navigate to <a id="name-service" class="ptabs" showId="paneName">Name tab</a>. </p>
+  <p> You can send a transaction to a Name with no need to use hex address. DexNS is redirecting every transaction by Name to associated address automatically.</p>
+  <p> You can register your own Name to receive payments from <a id="send-transaction" class="ptabs" showId="paneSendTrans">Transactions tab</a>. Every registered name will be your for next 1500000 blocks (about 260 days) and later can be re-registered by someone other if you will not update this name. Every name registration is now free as Name Service contract is working in test mode now.</p>
+  <p> Note: Owner of the Name is a wallet that have permission to change Name content, not an address associated with this Name! Every transaction to Name is redirected to associated address.</p>
+
+
+    <h3> How to send transaction by Name? </h3>
+  <ol>
+  <p> Go to <a id="send-transaction" class="ptabs" showId="paneSendTrans">Transactions tab</a>.</p>
+  <p> Unlock your wallet with Geth/Parity/MyEtherWallet key.</p>
+  <p> Input a Name in "To:" textbox and check if Name is registered. If you did right green text with associated address will appear. If there is a link associated with this Name it will appear as well. </p>
+  <p><img src="images/NewTx.png"/></p>
+  <p>  Click "GENERATE TRANSACTION" and transaction info will appear. Receiver information will show you a Name and its associated address.</p>
+  <p><img src="images/ReceiverInfo.png"/></p>
+  <p> Click "SEND TRANSACTION" and if everithing is ok your transaction hash will appear.</p>
+  </ol>
+
+      <h3> How to register Name? </h3>
+  <ol>
+  <p> Navigate to <a id="name-service" class="ptabs" showId="paneName">Name tab</a>.</p>
+  <p> Input a name you want to register in lookup Name textbox. If the given Name is free (not registered now) its owner, address and endblock will be 0. If the Name is registered but its endblock is less than current block you can overwrite an existing Name and register it like it is free. Otherwise you can't register this Name.</p>
+  <p><img src="images/NameTab.png"/></p>
+  <p> Go to <a id="send-transaction" class="ptabs" showId="paneSendTrans">Transactions tab</a>.</p>
+  <p> Unlock your wallet with Geth/Parity/MyEtherWallet key.</p>
+  <p> Input a Name in "New Name" textbox under your account info and click "Register me!" button. </p>
+  <p><img src="images/RegNew.png"/></p>
+  <p>  If everything is done right transaction cost will appear. It will cost 0 ETC at the moment as NS is running in test mode. Click "Proceed" and wait for transaction to be mined.</p>
+  <p><img src="images/TxRegName.png"/></p>
+  <p> Click "SEND TRANSACTION" and if everithing is ok your transaction hash will appear.</p>
+  </ol>
+
+
+  <h3> Security </h3>
+  <p> DexNS is based on open source code of MyEtherWallet and is as safe as MyEtherWallet.</p>
+  <p> One of your first questions is, "Why should I trust these people?" You are probably worried that this site isn't secure. That is a good thing. When dealing with currency and the internet, you should be paranoid. But, let's try to be a bit reasonable.</p>
+  <p> At this point, we have not had our code audited. Apparently, it costs a fair bit of money to get code audited. If you or a team you know would be willing to help us out in the auditing department, please let us know. <a href="https://www.reddit.com/r/ethereum/comments/3hh89n/could_someone_please_audit_ether_wallet/">Here is a reddit thread with another user asking for someone to audit us.</a> Reach out to us on reddit or github or <a id="contact" class="ptabs" showId="paneContact"> where ever</a>.</p>
+  <p> Until someone / a group of people take the time to go through the code, here are some things to alleviate any paranoia you have:</p>
+  <ul>
+    <li>We've been up and running since August 2015. If you search for <a href="https://www.reddit.com/r/ethereum+ethtrader+EtherMining+EthereumProgramming+ethereumprojects+etherpool/search?q=myetherwallet&sort=relevance&t=all" target="_blank" />"myetherwallet" on reddit</a>, you can see numerous people who use us and no complaints or reports of stolen funds.</li>
+    <li>We aren't going to take your money or steal your private key(s). There is no malicious code on this site. In fact the "GENERATE WALLET" and "BULK GENERATE" tabs are completely client-side. That means that all the code is executed on <strong> your computer </strong> and it is never sent to the servers or to us or anywhere else in the magical internet land.</li>
+    <li> Check the URL -- This site is being served through github and you can see the source code here: <a href="https://github.com/kvhnuke/etherwallet" target="_blank">https://github.com/kvhnuke/etherwallet</a> to the domains: <a href="http://kvhnuke.github.io/etherwallet/" target="_blank">http://kvhnuke.github.io/etherwallet/</a> and <a href="https://www.myetherwallet.com" target="_blank">https://www.myetherwallet.com</a> (our new domain with SSL). You can verify it's hosted at github by using <a href="http://viewdns.info/dnsrecord/?domain=myetherwallet.com" target="_blank">http://viewdns.info/dnsrecord/?domain=myetherwallet.com</a> - last two A record IPs are owned by github for their custom domain hosting.</li>
+    <li> For generating wallets, you can download the <a href="https://github.com/kvhnuke/etherwallet">source code</a> by using the "DOWNLOAD ZIP" button in the aforementioned link. Then, disconnect your computer from the internet and / or move that .zip file via flash drive to an air-gapped computer. Unzip the file, double-click on "index.html", and you have the exact same thing happening on your air-gapped computer. You can now generate wallets on that computer without fear that we are stealing you heart and soul and first-born child. (Obviously, sending transactions is not going to work without the internet. Sorry!)</li>
+    <li> Do a test run and check and see what network activity is happening. The easiest way for you (yes, YOU!) to do this (if you are using Chrome) is to right click on the page and click "inspect element". Now, go to the "Network" tab. Then, generate a wallet. Any wallet, any password&mdash;this is a test, remember. You will see there is no network activity. You may see something happening that looks like data:image/gif and data:image/png. Those are the QR codes being generated...on your computer...by your computer. No bytes were transferred.</li>
+    <li> Now, to be safe, move over to the "Resources" tab. Here you can see all the different elements that make up a website. That includes things like the HTML (the base of what you see on the page), images (pretty pictures! Usually in .jpg, .gif, or .png format), the CSS (the stuff that makes the HTML look so pretty), the JS (the stuff that makes the HTML do other stuff, like making QR codes show up when you press Generate), Local Storage (one way of storing things on your local machine), Cookies (yum! Another way for sites to store data on your machine), and caches (yet another way to store stuff on your machine, usually to make things go faster). If you click through Local Storage, Cookies, and Cache, you will see nothing is being stored. Nothing is being saved. Refresh the page and you are back to square one.</li>
+    <li> If you do not feel comfortable using this tool, then by all means, do not use it. We created this tool as a helpful way for people to generate wallets and make transactions without needing to dive into command line / geth / etc. Again, feel free to reach out to us at any of the below addresses and we will respond as quickly as possible. Thanks! </li>
+  </ul>
+
+
+
+  <h3> Helpful Links </h3>
+  <ul>
+    <li><a href="https://ethereumclassic.github.io/" target="_blank">Official Ethereum Classic Site</a></li>
+    <li><a href="https://www.etcdevteam.com/" target="_blank">ETC Dev Team</a></li>
+    <li><a href="https://www.reddit.com/r/EthereumClassic/" target="_blank">Ethereum Classic Subreddit </a></li>
+    <li><a href="http://gastracker.io/" target="_blank">Blockchain Explorer</a></li>
+    <li><a href="https://github.com/Dexaran/dexaran.github.io/tree/master/nameservice" target="_blank">Altcoin Exchange</a></li>
+    <li><a href="https://www.etcdevteam.com/" target="_blank">Source Code</a></li>
+
+  </ul>
+  <p><small> ps: sorry for any typos or grammatical errors. English is not my native language...</small></p>
+</div>
+<!-- end help-->
+
+
+
+
 
 
 
   </div> <!-- /tab panes -->
 </section>
+
+  <footer class="container-fluid">
+  <div class="container">
+    <a href="https://www.myetherwallet.com/"><img src="images/etherwallet-logo.png" height="70px" width="auto" alt="Ether Wallet" /></a>
+    <p>This app is a part of <a href="https://github.com/Dexaran/Treasury" style="color: white; text-decoration: underline;">Treasury System</a></p>
+    <p class="wrap"> Developed using MyEtherWallet open sourcecode. </p>
+  </div>
+</footer>
 </body>
 </html>
 

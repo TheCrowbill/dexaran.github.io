@@ -44,11 +44,6 @@ function paneNavigate(showEleId, activeEleId) {
 function bindElements() {
 
 
-	$("#dexFuncData").click(function() {
-		$("#dexFuncStatus").hide();
-	});
-
-
 
 	$(".ptabs").each(function(index) {
 		$(this).click(function() {
@@ -276,6 +271,10 @@ function hideAllMainContainers() {
 	$("#send-transaction").parent().removeClass('active');
 	$("#popular-contracts").parent().removeClass('active');
 	$("#help").parent().removeClass('active');
+	$("#name-service").parent().removeClass('active');
+	$("#faq").parent().removeClass('active');
+	$("#name-browser").parent().removeClass('active');
+	$("#howto").parent().removeClass('active');
 	$("#contact").parent().removeClass('active');
 }
 

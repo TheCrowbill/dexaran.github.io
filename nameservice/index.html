@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>DexNS browser</title>
+  <title>DeNS browser</title>
   <link rel="canonical" href="https://github.com/Dexaran" />
-  <meta name="description" content="Decentralized Naming Service ">
+  <meta name="description" content="Powered by Dexaran">
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,300,600" rel="stylesheet" type="text/css">
@@ -229,17 +229,20 @@ try{
       //alert("executed!");
       Name1 = $('#sendtxaddress').val();
 
-
+      $("#linkstrstatus").hide();
+      clearInterval(clockingFunc);
       clockingFunc = setInterval(function(){
+
         if(!validateEtherAddress(Name1)){
         contract.getName(Name1, function(error, result){
           if(!error)
-            if(validateEtherAddress(result[0]) && (result[0]!=0x0)){
+            if(validateEtherAddress(result[1]) && (result[1]!=0x0)){
               $('#addressvalidate').html('<p class="text-success"><strong> Valid address: ' + result[1] +'</strong></p>');
-              
-              if(result[2][0]=='-' && result[2][1]=='L' && result[2][0]==' ') {
-                var linkStr = result[2].substring(3);
-                $("#linkstrstatus").html('<a href="'+ linkStr + '">'+ linkStr + '</a></p>');
+              if((result[2][0]=='-') && (result[2][1]=='L') && (result[2][2]==' ')) {
+                alert("If Success!");
+                var linkStr = String(result[2]).substring(3);
+                $("#linkstrstatus").show();
+                $("#linkstrstatus").html('<a href="'+ linkStr + '">'+ linkStr + '</a>');
               }
 
             }
@@ -253,7 +256,7 @@ try{
       }
 
 
-      }, 900);
+      }, 1000);
       
     }
     

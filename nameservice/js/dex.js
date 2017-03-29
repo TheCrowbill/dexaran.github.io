@@ -8,21 +8,27 @@
     var contractAddress = '0x0e2cec66618f7ca428b1fe01d0de779dbb0f7358';
     var contract = web3.eth.contract(abiArray).at(contractAddress);
     var clockingFunc;
-    var newName;
+    var Name1;
 
 
     window.onload = function() {
 
     }
 
+    function onRegisterNameKeyUp() {
+        $("#divregNameCosts").hide();
+    }
 
     function dexRegName() {
-
+      var currentBlockNumber = web3.eth.blockNumber;
+      //var nameregCost = contract.getName($('#newnameregister').val());
       var askName = contract.getName($('#newnameregister').val());
-          //TODO
-      if((askName[0]!=0x0) || (askName[1]!=0x0)) {
-        alert("ERROR: Name is already registered!");
+      //if((askName[0]!=0x0) || (askName[1]!=0x0)) {
+
+      if(askName[3]>currentBlockNumber) {
+        $('#nameregvalidate').html('<p class="text-danger"><strong> Can not register this name </strong></p>').fadeOut(1500);
       } else {
+        $('#nameregvalidate').html('<p class="text-success"><strong> Name is available </strong></p>').fadeOut(2000);
       $("#divregNameCosts").show();
     }
     }
@@ -176,18 +182,18 @@ try{
               //console.error(error);
       });
       }, 900);
-      }
+}
 
     function onAddressKeyUp() {
       //alert("executed!");
-      newName = $('#sendtxaddress').val();
+      Name1 = $('#sendtxaddress').val();
 
       $("#linkstrstatus").hide();
       clearInterval(clockingFunc);
       clockingFunc = setInterval(function(){
 
-        if(!validateEtherAddress(newName)){
-        contract.getName(newName, function(error, result){
+        if(!validateEtherAddress(Name1)){
+        contract.getName(Name1, function(error, result){
           if(!error)
             if(validateEtherAddress(result[1]) && (result[1]!=0x0)){
               $('#addressvalidate').html('<p class="text-success"><strong> Valid address: ' + result[1] +'</strong></p>');

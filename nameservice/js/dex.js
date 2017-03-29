@@ -8,7 +8,7 @@
     var contractAddress = '0x0e2cec66618f7ca428b1fe01d0de779dbb0f7358';
     var contract = web3.eth.contract(abiArray).at(contractAddress);
     var clockingFunc;
-    var Name1;
+    var newName;
 
 
     window.onload = function() {
@@ -19,7 +19,8 @@
     function dexRegName() {
 
       var askName = contract.getName($('#newnameregister').val());
-      if(askName[0]!=0x0) {
+          //TODO
+      if((askName[0]!=0x0) || (askName[1]!=0x0)) {
         alert("ERROR: Name is already registered!");
       } else {
       $("#divregNameCosts").show();
@@ -154,27 +155,39 @@ try{
     function onNameKeyUp() {
 
       var Name = document.getElementById('searchname').value;
+          
+      clearInterval(clockingFunc);
+      clockingFunc = setInterval(function(){
         contract.getName(Name, function(error, result){
           if(!error)
+                
+                $("#ownerOfId").val(result[0]);
+                $("#addressOfId").val(result[1]);
+                $("#valueOfId").val(result[2]);
+                $("#endblockOfId").val(result[3]);
+                //$("#signature").val(result[4]); //NOT YET SUPPORTED BY CONTRACT
+                /*
               document.getElementById('ownerOfId').value = result[0];
               document.getElementById('addressOfId').value = result[1];
               document.getElementById('valueOfId').value = result[2];
               document.getElementById('endblockOfId').value = result[3];
+              */
           //else
               //console.error(error);
       });
       }
+      }
 
     function onAddressKeyUp() {
       //alert("executed!");
-      Name1 = $('#sendtxaddress').val();
+      newName = $('#sendtxaddress').val();
 
       $("#linkstrstatus").hide();
       clearInterval(clockingFunc);
       clockingFunc = setInterval(function(){
 
-        if(!validateEtherAddress(Name1)){
-        contract.getName(Name1, function(error, result){
+        if(!validateEtherAddress(newName)){
+        contract.getName(newName, function(error, result){
           if(!error)
             if(validateEtherAddress(result[1]) && (result[1]!=0x0)){
               $('#addressvalidate').html('<p class="text-success"><strong> Valid address: ' + result[1] +'</strong></p>');

@@ -9,14 +9,78 @@
     var contract = web3.eth.contract(abiArray).at(contractAddress);
     var clockingFunc;
     var Name1;
+    var accessGas=200000;
 
 
     window.onload = function() {
 
     }
 
+
+    function dexUpdateName() {
+        $("#divUpdateNameValues").show();
+        $("#updatenamestatus").hide();
+      $("#tarawtxUpdateName").hide();
+    }
+
+    function dexUpdateNameSubmit() {
+
+    var addressFrom = $("#accountAddress").html();
+    var addressNonce = web3.eth.getTransactionCount(addressFrom);
+
+    var nonce1 = padLeftEven(BNtoHex(new BigNumber(addressNonce)));
+    var gasPrice1 = padLeftEven(BNtoHex(new BigNumber(0).plus(20000000000).toDigits(1))); 
+    var gasLimit1 = padLeftEven(BNtoHex(new BigNumber(accessGas)));
+
+    var callName = $('#nametoupdatetxt').val();
+    var callAddress = $('#updatenameaddress').val();
+    var callValue = $('#updatenamevalue').val();
+
+
+
+    var dexCallData = contract.updateName.getData(callName, callAddress, callValue);
+
+    var rawUpdatenameTx = {
+      nonce: '0x'+nonce1,
+      gasPrice: '0x'+gasPrice1,
+      gasLimit: '0x'+gasLimit1,
+      to: contractAddress,
+      value: '0x0',
+      data: dexCallData
+    };
+
+
+    var privateKey = new Buffer(PrivKey, 'hex');
+    var txUpdate = new Tx(rawUpdatenameTx);
+
+    txUpdate.sign(privateKey);
+
+    var serializedRegTx = '0x' + txUpdate.serialize().toString('hex');
+      var rdataUpdate = {
+        raw: JSON.stringify(rawUpdatenameTx),
+        signed: serializedRegTx
+      }
+
+
+      $("#tarawtxUpdateName").val(rdataUpdate.raw);
+      $("#tarawtxUpdateName").show();
+      $("#updatenamestatus").show();
+      web3.eth.sendRawTransaction(rdataUpdate.signed, function(err, result) {
+        if(err) {
+ $("#nameUpdateTxStatus").html('<p class="text-center text-success"><strong> ERROR:  ' +err +'</strong></p>');
+       }
+        else {
+          $("#nameUpdateTxStatus").html('<p class="text-center text-success"><strong> Transaction submitted. TX ID:  </strong><a href="http://gastracker.io/tx/'+ result + '">'+ result + '</a></p>');
+        }
+      });
+    }
+
     function onRegisterNameKeyUp() {
         $("#divregNameCosts").hide();
+    }
+
+    function onUpdateNameKeyUp() {
+        $("#divUpdateNameValues").hide();
     }
 
     function dexRegName() {
@@ -25,9 +89,11 @@
       var askName = contract.getName($('#newnameregister').val());
       //if((askName[0]!=0x0) || (askName[1]!=0x0)) {
 
-      if(askName[3]>currentBlockNumber) {
+      if((askName[3]>currentBlockNumber) || (askName[2]=="-avoid")) {
+        $('#nameregvalidate').html('<p class="text-danger"><strong> Can not register this name </strong></p>').fadeIn(1000);
         $('#nameregvalidate').html('<p class="text-danger"><strong> Can not register this name </strong></p>').fadeOut(1500);
       } else {
+        $('#nameregvalidate').html('<p class="text-success"><strong> Name is available </strong></p>').fadeIn(1000);
         $('#nameregvalidate').html('<p class="text-success"><strong> Name is available </strong></p>').fadeOut(2000);
       $("#divregNameCosts").show();
     }
@@ -43,7 +109,6 @@
     var gasLimit1 = padLeftEven(BNtoHex(new BigNumber(210000)));
 
     var dexCallData = contract.registerName.getData($('#newnameregister').val());
-
     var rawRegnameTx = {
       nonce: '0x'+nonce1,
       gasPrice: '0x'+gasPrice1,
@@ -195,7 +260,7 @@ try{
         if(!validateEtherAddress(Name1)){
         contract.getName(Name1, function(error, result){
           if(!error)
-            if(validateEtherAddress(result[1]) && (result[1]!=0x0)){
+            if(validateEtherAddress(result[1]) && (result[1]!=0x0) && (Name1!="")){
               $('#addressvalidate').html('<p class="text-success"><strong> Valid address: ' + result[1] +'</strong></p>');
               if((result[2][0]=='-') && (result[2][1]=='L') && (result[2][2]==' ')) {
                 var linkStr = String(result[2]).substring(3);

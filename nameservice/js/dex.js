@@ -175,7 +175,7 @@ try{
           //else
               //console.error(error);
       });
-      }
+      }, 900);
       }
 
     function onAddressKeyUp() {

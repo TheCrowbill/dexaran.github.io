@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DexNS</title>
+  <link rel="canonical" href="https://github.com/Dexaran" />
+  <meta name="description" content="Decentralized Naming Service">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/etherwallet-master.min.css">
+  <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="js/etherwallet-static.min.js"></script>
+  <script type="text/javascript" src="js/etherwallet-master.min.js"></script>
+  <script type="text/javascript" src="js/abi.js"></script>
+
+  <script type="text/javascript" src="web3.min.js"></script>
+
+  <script type="text/javascript" src="js/source/01_global.js"></script>
+  <script type="text/javascript" src="js/source/02_ajax.js"></script>
+  <script type="text/javascript" src="js/source/03_transactions.js"></script>
+  <script type="text/javascript" src="js/source/04_walletimport.js"></script>
+  <script type="text/javascript" src="js/source/staticJS/01_ethereumjs-accounts.js"></script>
+  <script type="text/javascript" src="js/source/staticJS/02_qrcode.min.js"></script>
+  <script type="text/javascript" src="js/source/staticJS/03_ctr.js"></script>
+  <script type="text/javascript" src="js/source/staticJS/03_sha3.js"></script>
+  <script type="text/javascript" src="js/source/staticJS/03_zeropad.js"></script>
+  <script type="text/javascript" src="js/source/staticJS/04_bootstrap_modal.js"></script>
+  <script type="text/javascript" src="js/source/staticJS/05_pbkdf2-min.js"></script>
+  <script type="text/javascript" src="js/source/staticJS/06_sha256.js"></script>
+  <script type="text/javascript" src="js/source/staticJS/06_sha-pbkdf.js"></script>
+  <script type="text/javascript" src="js/source/staticJS/07_scrypt.js"></script>
+  <script type="text/javascript" src="js/source/staticJS/08_web3.js"></script>
+  <script type="text/javascript" src="js/dex.js"></script>
+  <script type="text/javascript" src="js/dex_utils.js"></script>
+
+  <script type="text/javascript" src="js/etherwallet-master.js"></script>
+
+  <link rel="apple-touch-icon" sizes="60x60" href="/fav/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/fav/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/fav/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/fav/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/fav/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/fav/dex32x32.png" sizes="32x32">
+  <link rel="manifest" href="/fav/manifest.json">
+  <link rel="shortcut icon" href="favicon.ico">
+  <meta name="msapplication-TileColor" content="#2e4868">
+  <meta name="msapplication-TileImage" content="/fav/mstile-144x144.png">
+  <meta name="msapplication-config" content="/fav/browserconfig.xml">
+  <meta name="theme-color" content="#2e4868">
+</head>
+
+<body>
+
+<header class="container-fluid bg-navy text-white">
+<section class="container">
+  <a href="https://github.com/Dexaran"><img src="images/etherwallet-logo.png" height="95px" width="auto" alt="DX" /></a>
+  
+</section>
+</header>
+
+
+<!-- navtabs -->
+<br />
+<!-- tab panes -->
+
+<section class="container" style="min-height: 70%">
+
+  <div class="tab-content">
+
+  <!-- Interact Contracts -->
+<div class="tab-pane" id="paneContract">
+
+<!-- Button -->
+<section class="col-xs-12 clearfix">
+
+<!-- Contract Info CONTRACT_Interact_CTA -->
+<div id="readWriteContract" style="display: none;">
+
+
+
+
+  <div class="col-md-8" id="divSelectedFuncTx">
+  <div class="col-md-8" id="divParam">
+
+
+  <!-- TEST 
+          <div class="col-sm-8">
+            <div class="col-sm-6">
+                <label> iput name </label>
+            </div>
+            <div class="col-sm-8"><input class="form-control" type="text" placeholder="address"/>
+          </div>
+          </div> -->
+
+
+
+
+</div>
+  <button class="btn btn-primary" onclick="getContractTxData()" translate="x_Access"> WRITE </button>
+<div>
+
+</section>
+
+
+</div>
+
+
+
+
+  </div> <!-- /tab panes -->
+</section>
+
+</body>
+</html>
+
+
+

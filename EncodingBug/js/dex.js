@@ -178,8 +178,11 @@ $('#divSelectedFuncTx').show();
         var result = "0x";
         result += funcSig;
         result += ethUtil.solidityCoder.encodeParams(types, values);
+        $('#rawDataGen').html('<p> Generated TX for transfer ERC20 tokens data will be: </p>' + result);
         var decodedRes = ethUtil.solidityCoder.decodeParams(types, ethUtil.solidityCoder.encodeParams(types, values));
         alert(decodedRes);
+
+        $('#decDataGen').html('<p> Decoded back data will be: {</p>' + decodedRes +'}');
         return result;
     }
 

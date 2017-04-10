@@ -92,14 +92,11 @@
     $('#sendContractTxResult').html("");
     var addressNonce = web3.eth.getTransactionCount(currentAccount);
 
-
-    var tmpValue = String(toWei($('#etherToContract').val(), 'ether'));
-
-
+    var tmpValue1 = String(web3.toWei($('#etherToContract').val(), 'ether'));
     var nonce1 = padLeftEven(BNtoHex(new BigNumber(addressNonce)));
     var gasPrice1 = padLeftEven(BNtoHex(new BigNumber(0).plus(20000000000).toDigits(1))); 
     var gasLimit1 = padLeftEven(BNtoHex(new BigNumber($('#gasToContract').val())));
-    var value1 = padLeftEven(BNtoHex(new BigNumber(tmpValue)));
+    var value1 = padLeftEven(BNtoHex(new BigNumber(tmpValue1)));
 
       var contractTxData = $('#tarawCallContractTx').val();
       var targetContract = $('#customContractAddress').val();
@@ -604,9 +601,11 @@ try{
     var addressNonce = web3.eth.getTransactionCount(addressFrom);
 
     var nonce = padLeftEven(BNtoHex(new BigNumber(addressNonce)));
-    var tmpValue = String(toWei($('#sendtxamount').val(), 'ether'));
+
+    var tmpValue = String(web3.toWei($('#sendtxamount').val(), 'ether'));
+
     var gasPrice = padLeftEven(BNtoHex(new BigNumber(0).plus(20000000000).toDigits(1))); 
-    var gasLimit = padLeftEven(BNtoHex(new BigNumber(90000))); 
+    var gasLimit = padLeftEven(BNtoHex(new BigNumber(22000))); 
     var value = padLeftEven(BNtoHex(new BigNumber(tmpValue)));
 
     var rawTx = {

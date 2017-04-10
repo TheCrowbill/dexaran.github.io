@@ -92,10 +92,14 @@
     $('#sendContractTxResult').html("");
     var addressNonce = web3.eth.getTransactionCount(currentAccount);
 
+
+    var tmpValue = String(toWei($('#etherToContract').val(), 'ether'));
+
+
     var nonce1 = padLeftEven(BNtoHex(new BigNumber(addressNonce)));
     var gasPrice1 = padLeftEven(BNtoHex(new BigNumber(0).plus(20000000000).toDigits(1))); 
     var gasLimit1 = padLeftEven(BNtoHex(new BigNumber($('#gasToContract').val())));
-    var value1 = padLeftEven(BNtoHex(new BigNumber($('#etherToContract').val())));
+    var value1 = padLeftEven(BNtoHex(new BigNumber(tmpValue)));
 
       var contractTxData = $('#tarawCallContractTx').val();
       var targetContract = $('#customContractAddress').val();

@@ -55,6 +55,7 @@
 <!-- navtabs -->
 <section class="container">
   <ul class="nav nav-tabs">
+    <li><a id="generate-wallet" class="ptabs" showId="paneWalgen">         Generate Wallet   </a></li>
     
     <li>               <a id="send-transaction" class="ptabs" showId="paneSendTrans">     Access account  </a></li>
 
@@ -69,6 +70,80 @@
 <section class="container" style="min-height: 70%">
 
   <div class="tab-content">
+
+
+
+
+
+
+    <!-- wallet generator -->
+    <div class="tab-pane active" id="paneWalgen">
+      <h2> Generate Wallet </h2>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <h4>Enter a password to encrypt your private key:</small> </h4>
+            <input type="text" class="form-control" placeholder="Never, Ever Forget This" id="ethgenpassword" />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <h4 style="margin-bottom: 27px;">Give me my wallet:</h4>
+            <a class="btn btn-primary btn-block" id="generatewallet">GENERATE</a>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="generatedWallet" style="display:none;">
+        <hr />
+        <h3 class="text-success col-xs-12">Sucess! Your wallet has been generated.</h3>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <h4>Your Address:</h4>
+            <input class="form-control" type="text" id="address" readonly="readonly">
+          </div>
+          <div class="form-group">
+            <h4>Your Private Key (encrypted):</h4>
+            <input class="form-control" type="text" id="privkeyenc" readonly="readonly">
+          </div>
+          <div class="form-group">
+            <h4>Your Private Key (unencrypted):</h4>
+            <input class="form-control" type="text" id="privkey" readonly="readonly">
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <h4>QR code (Address):</h4>
+              <div id="qrcodeAdd" width="100%"></div>
+            </div>
+            <div class="form-group col-sm-6">
+              <h4>QR code (Private Key):</h4>
+              <div id="qrcode" width="100%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <h4> Print Paper Wallet: </h4>
+            <a class="btn btn-info btn-block" id="printqr">PRINT</a>
+          </div>
+          <div class="form-group">
+            <h4>Download JSON file (encrypted): <br /> <small> You will need to use the password you used to generate your wallet to unencrypt this file. </small></h4>
+            <a class="btn btn-info btn-block" id="encdownload"> DOWNLOAD </a>
+          </div>
+          <div class="form-group">
+            <h4>Download JSON file (unencrypted):</h4>
+            <a class="btn btn-info btn-block" id="unencdownload">DOWNLOAD</a>
+          </div>
+        </div>
+      </div>
+    </div> <!-- / wallet generator -->
+
+
+
+
+
+
+
+
 
     <div class="tab-pane active" id="paneName">
 
@@ -91,7 +166,7 @@
             <input type="text" style="color: #5C5C5C;" class="form-control" placeholder="Text..." id="valueOfId" readonly="readonly"/>
           </div>
         <div class="form-group">
-        <h4 style="color: #8C8C8C;" > Name ownership expires: </h4>
+        <h4 style="color: #8C8C8C;" > Name ownership expires on block: </h4>
             <input type="text" style="color: #5C5C5C;" class="form-control" placeholder="5900000" id="endblockOfId" readonly="readonly"/>
           </div>
         </div>
@@ -300,10 +375,9 @@
     <p>DexNS is not "web wallet". You do not create an account or give it your Ether to hold onto. All data is created on your computer/your browser, not our servers. It's not a website where you put your Ether and it store them for you.</p>
 
 
-  <h3> You don't need hex addresses anymore! </h3>
-  <h3> You don't need contract ABI anymore! </h3>
+  <h3> You don't need hex addresses any more! </h3>
   <h3> What is DexNS? </h3>
-  <p> This site is a template that is providing base functional.</p>
+  <p> This is a first version of DexNS. This site is a template that is providing base functional.</p>
   <p> DexNS (or Decentralized Naming Service) is an open sourcecode <a href="https://github.com/Dexaran/DNS">smart-contract</a> allowing users to associate their addresses with 'Names'.</p>
   <p> 'Name' is a key-phrase matched with Name owner address. Each Name can be connected with one address and one text value. If you want to associate your name with a link use '-L ' characters pattern before link text (without quotes). Each address can own unlimited amount of Names. You can register every Name you want directly via contract or by DexNS web interface. To browse already existing Names navigate to <a id="name-service" class="ptabs" showId="paneName">Name tab</a>. </p>
   <p> You can send a transaction to a Name with no need to use hex address. DexNS is redirecting every transaction by Name to associated address automatically.</p>
@@ -358,14 +432,13 @@
   <p> Type a contract Name in "Contract Name" textbox. Wait for contract to be found. It can take a few seconds depending on your internet connection quality.</p>
   <p>  NOTE: Don't leave a whitespaces at the end of input Name!</p>
   <p><img src="images/TypeContract.png"/></p>
-    <p> If contract Name is correct contract functions will appear. Contract ABI and address would be loaded automatically. You can switch to "CONTRACT ABI" tab to watch contract address and ABI.</p>
+  <p> If contract Name is correct contract functions will appear. Contract ABI and address would be loaded automatically. You can switch "CONTRACT ABI" tab to watch contract address and ABI.</p>
   <p><img src="images/ABIandAddress.png"/></p>
   <p> You can click a function to access. </p>
   <p><img src="images/ContractNameValid.png"/></p>
-  <p>Readable functions can be executed with no need to unlock wallet, but writable functions require unlocked account. If you want to execute function that requires unlocked account navigate to <a id="send-transaction" class="ptabs" showId="paneSendTrans">Account tab</a>, unlock your wallet and 
-    try to execute contract function.</p>
+  <p>Readable functions can be executed with no need to unlock wallet, but writable functions require unlocked account. If you want to execute function that requires unlocked account navigate to <a id="send-transaction" class="ptabs" showId="paneSendTrans">Account tab</a>, unlock your wallet and than try to execute contract function.</p>
   <p><img src="images/ContractFunction.png"/></p>
-  <p> Click "WRITE" button. Your current account that will be used to execute a transaction and transaction info will appear. You can attach Ether to transaction when executing "payable" functions. You should also specify amount of gas that will be attached. Then click "SEND TRANSACTION" button and transaction hash will appear.</p>
+  <p> Click "WRITE" button. Your current account that will be used to execute a transaction and transaction info will appear. You can attach Ether to transaction when executing "payable" functions. You should also specify amount of gas that will be attached. Than click "SEND TRANSACTION" button and transaction hash will appear.</p>
   <p><img src="images/WriteContract.png"/></p>
 
 
@@ -383,16 +456,6 @@
     <li> Now, to be safe, move over to the "Resources" tab. Here you can see all the different elements that make up a website. That includes things like the HTML (the base of what you see on the page), images (pretty pictures! Usually in .jpg, .gif, or .png format), the CSS (the stuff that makes the HTML look so pretty), the JS (the stuff that makes the HTML do other stuff, like making QR codes show up when you press Generate), Local Storage (one way of storing things on your local machine), Cookies (yum! Another way for sites to store data on your machine), and caches (yet another way to store stuff on your machine, usually to make things go faster). If you click through Local Storage, Cookies, and Cache, you will see nothing is being stored. Nothing is being saved. Refresh the page and you are back to square one.</li>
     <li> If you do not feel comfortable using this tool, then by all means, do not use it. We created this tool as a helpful way for people to generate wallets and make transactions without needing to dive into command line / geth / etc. Again, feel free to reach out to us at any of the below addresses and we will respond as quickly as possible. Thanks! </li>
   </ul>
-
-        <h3> Planned features: </h3>
-  <ol>
-  <p>1. Name management.</p>
-  <p>2. Extended Name browser.</p>
-  <p>3. MyEtherWallet features integration.</p>
-  <p>4. ECNS support.</p>
-  <p>5. ERC tokens support.</p>
-  <p>6. Graphics improvement!</p>
-  </ol>
 
 
 

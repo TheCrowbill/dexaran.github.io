@@ -204,6 +204,15 @@
           </p>
         </div>`);
                 break;
+              default:
+                divOutputStr += String(`
+                          <div class="col-sm-8 well">
+          <p class="item write-bytes32">
+            <label> ` +contractFunctions[index].inputs[i].name + ` </label>
+            <input id="param-` +i+ `" class="form-control" type="text" placeholder="bytes (example: 0x001110101110100)"/>
+          </p>
+        </div>`);
+                break;
           }
         }
       }

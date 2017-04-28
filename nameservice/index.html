@@ -57,7 +57,7 @@
   <ul class="nav nav-tabs">
     <li><a id="generate-wallet" class="ptabs" showId="paneWalgen">         Generate Wallet   </a></li>
     
-    <li>               <a id="send-transaction" class="ptabs" showId="paneSendTrans">     Access account  </a></li>
+    <li>               <a id="access-account" class="ptabs" showId="paneSendTrans">     Access account  </a></li>
 
     <li>               <a id="interact-contract" class="ptabs" showId="paneContract">     Contracts  </a></li> 
     <li class="active"> <a id="name-service" class="ptabs" showId="paneName">                      Names              </a></li>
@@ -319,6 +319,30 @@
               <label><input type="radio" name="currencyRadio" checked value="ether">Ether</label>
               <div id="weiamount"></div>
             </div>
+
+
+            <div> <label>   </label>   </div>
+<div class="btn btn-primary" id="btnDropdownAdvOpt" onclick="dropdownAdvOpts()"> + ADVANCED TRANSACTION OPTIONS </div>
+<div class="btn btn-primary" id="btnHideAdvOpt" style="color:#fff;background-color:#109933;border-color:#109933; display: none;" onclick="hideAdvOpts()"> - ADVANCED TRANSACTION OPTIONS </div>
+
+    <input type="checkbox" id="advancedTxOptions"/>
+
+              <div class="form-group" id="divtxAdvanced" style="display: none;">
+                <p> WARNING! <small>Do not touch it if you don't understand what you are doing, or bad things may happen </small></p>
+              <label> Gas (decimal number)</label>
+                  <textarea class="form-control" rows="1" disabled id="taTxGas">21000</textarea>
+              <label> Gas Price (decimal number)</label>
+                  <textarea class="form-control" rows="1" disabled id="taTxGasPrice">20000000000</textarea>
+              <label> Transaction Raw Data (in HEX without '0x')</label>
+                  <textarea class="form-control" rows="1" disabled id="taTxData"></textarea>
+              <label> Nonce (decimal number)</label>
+                  <textarea class="form-control" rows="1" disabled id="taTxNonce"></textarea>
+              </div>
+
+
+
+
+
           </div>
           <div class="form-group col-xs-12">
             <a class="btn btn-info btn-block" id="dex-override-gentx" onclick="dexGenTx()">GENERATE TRANSACTION</a>
@@ -326,11 +350,12 @@
           <div id="txcreatestatus"></div>
           <div class="form-group col-xs-12" style="display: none;" id="divtransactionTAs">
               <label> Receiver information </label>
-            <textarea class="form-control" rows="4" disabled id="tareceiver"></textarea>
+            <textarea class="form-control" rows="4" readonly="readonly" id="tareceiver"></textarea>
               <label> Raw Transaction </label>
-            <textarea class="form-control" rows="4" disabled id="tarawtx"></textarea>
+            <textarea class="form-control" rows="4" readonly="readonly" id="tarawtx"></textarea>
               <label> Signed Transaction </label>
-            <textarea class="form-control" rows="4" disabled id="tasignedtx"></textarea>
+            <textarea class="form-control" rows="4" readonly="readonly" id="tasignedtx"></textarea>
+            
           </div>
           <div id="txsendstatus"></div>
           <div class="form-group col-xs-12" id="divsendtranaction" style="display: none;">
@@ -381,7 +406,7 @@
   <p> DexNS (or Decentralized Naming Service) is an open sourcecode <a href="https://github.com/Dexaran/DNS">smart-contract</a> allowing users to associate their addresses with 'Names'.</p>
   <p> 'Name' is a key-phrase matched with Name owner address. Each Name can be connected with one address and one text value. If you want to associate your name with a link use '-L ' characters pattern before link text (without quotes). Each address can own unlimited amount of Names. You can register every Name you want directly via contract or by DexNS web interface. To browse already existing Names navigate to <a id="name-service" class="ptabs" showId="paneName">Name tab</a>. </p>
   <p> You can send a transaction to a Name with no need to use hex address. DexNS is redirecting every transaction by Name to associated address automatically.</p>
-  <p> You can register your own Name to receive payments from <a id="send-transaction" class="ptabs" showId="paneSendTrans">Account tab</a>. Every registered name will be your for next 1500000 blocks (about 260 days) and later can be re-registered by someone other if you will not update this name. Every name registration is now free as Name Service contract is working in test mode now.</p>
+  <p> You can register your own Name to receive payments from <a id="access-account" class="ptabs" showId="paneSendTrans">Account tab</a>. Every registered name will be your for next 1500000 blocks (about 260 days) and later can be re-registered by someone other if you will not update this name. Every name registration is now free as Name Service contract is working in test mode now.</p>
   <p> Note: Owner of the Name is a wallet that have permission to change Name content, not an address associated with this Name! Every transaction to Name is redirected to associated address.</p>
 
   <p> Everyone is allowed to develop another UI/service working with DexNS smart-contract. (I'd be happy because of I don't like to be a UI developer) </p>
@@ -389,7 +414,7 @@
 
     <h3> How to send transaction by Name? </h3>
   <ol>
-  <p> Go to <a id="send-transaction" class="ptabs" showId="paneSendTrans">Account tab</a>.</p>
+  <p> Go to <a id="access-account" class="ptabs" showId="paneSendTrans">Account tab</a>.</p>
   <p> Unlock your wallet with Geth/Parity/MyEtherWallet key.</p>
   <p> Input a Name in "To:" textbox and check if Name is registered. If you did right green text with associated address will appear. If there is a link associated with this Name it will appear as well. </p>
   <p><img src="images/NewTx.png"/></p>
@@ -403,7 +428,7 @@
   <p> Navigate to <a id="name-service" class="ptabs" showId="paneName">Name tab</a>.</p>
   <p> Input a name you want to register in lookup Name textbox. If the given Name is free (not registered now) its owner, address and endblock will be 0. If the Name is registered but its endblock is less than current block you can overwrite an existing Name and register it like it is free. Otherwise you can't register this Name.</p>
   <p><img src="images/NameTab.png"/></p>
-  <p> Go to <a id="send-transaction" class="ptabs" showId="paneSendTrans">Account tab</a>.</p>
+  <p> Go to <a id="access-account" class="ptabs" showId="paneSendTrans">Account tab</a>.</p>
   <p> Unlock your wallet with Geth/Parity/MyEtherWallet key.</p>
   <p> Input a Name in "New Name" textbox under your account info and click "Register me!" button. </p>
   <p><img src="images/RegNew.png"/></p>
@@ -413,7 +438,7 @@
 
         <h3> How to change Name content? </h3>
   <p> If you already have a Name you may change its content. For example you can deploy contract, register a Name for it and attach contract address to registered Name. Or just attach a link that will be shown when someone will try to send transaction to your Name.</p>
-  <p> To change Name content you need to go to <a id="send-transaction" class="ptabs" showId="paneSendTrans">Account tab</a>.</p>
+  <p> To change Name content you need to go to <a id="access-account" class="ptabs" showId="paneSendTrans">Account tab</a>.</p>
   <p> Watch "UPDATE NAME" button. You should type your Name in Update Name textbox under this button. For example Im updating 'ETC Dev Team' Name.</p>
   <p><img src="images/UpdateName.png"/></p>
   <p> Click "UPDATE NAME" button.</p>
@@ -436,7 +461,7 @@
   <p><img src="images/ABIandAddress.png"/></p>
   <p> You can click a function to access. </p>
   <p><img src="images/ContractNameValid.png"/></p>
-  <p>Readable functions can be executed with no need to unlock wallet, but writable functions require unlocked account. If you want to execute function that requires unlocked account navigate to <a id="send-transaction" class="ptabs" showId="paneSendTrans">Account tab</a>, unlock your wallet and than try to execute contract function.</p>
+  <p>Readable functions can be executed with no need to unlock wallet, but writable functions require unlocked account. If you want to execute function that requires unlocked account navigate to <a id="access-account" class="ptabs" showId="paneSendTrans">Account tab</a>, unlock your wallet and than try to execute contract function.</p>
   <p><img src="images/ContractFunction.png"/></p>
   <p> Click "WRITE" button. Your current account that will be used to execute a transaction and transaction info will appear. You can attach Ether to transaction when executing "payable" functions. You should also specify amount of gas that will be attached. Than click "SEND TRANSACTION" button and transaction hash will appear.</p>
   <p><img src="images/WriteContract.png"/></p>
@@ -563,7 +588,7 @@
     <button class="btn btn-primary" id="btnWriteContract" onclick="generateContractCallTx()"> WRITE </button>
     <div id="currentAccountCheck"></div>
     <div id="contractTxInfo" style="display: none;">
-      <textarea class="form-control" rows="4" disabled id="tarawCallContractTx"></textarea>
+      <label> Raw Transaction:<textarea class="form-control" rows="3" readonly="" id="tarawCallContractTx"></textarea>
         <p class="item">
           <label> Send Ether: </label>
           <input id="etherToContract" class="form-control" type="text" placeholder="0" value="0"/>
@@ -572,6 +597,30 @@
           <label> Transaction gas: </label>
           <input id="gasToContract" class="form-control" type="text" placeholder="21000" value="21000"/>
         </p>
+
+
+
+<div> <label>   </label>   </div>
+
+<div class="btn btn-primary" id="btnDropdownAdvOptContract" onclick="dropdownAdvOptsContract()"> + ADVANCED TRANSACTION OPTIONS </div>
+<div class="btn btn-primary" id="btnHideAdvOptContract" style="color:#fff;background-color:#109933;border-color:#109933; display: none;" onclick="hideAdvOptsContract()"> - ADVANCED TRANSACTION OPTIONS </div>
+
+    <input type="checkbox" id="advancedTxOptionsContract"/> 
+
+              <div class="form-group" id="divtxAdvancedContract" style="display: none;">
+                
+                <!--<label> </label>-->
+                
+                <p> WARNING! <small>Do not touch it if you don't understand what you are doing, or bad things may happen </small></p>
+              <label> Gas Price (decimal number)</label>
+                  <textarea class="form-control" rows="1" disabled id="taTxGasPriceContract">20000000000</textarea>
+              <label> Nonce (decimal number)</label>
+                  <textarea class="form-control" rows="1" disabled id="taTxNonceContract"></textarea>
+              </div>
+
+
+
+
         <button class="btn btn-primary" id="btnSendContractTx" onclick="sendContractTx()"> SEND TRANSACTION </button>
         <div id="sendContractTxResult"></div>
     </div>

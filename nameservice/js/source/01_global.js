@@ -123,6 +123,46 @@ function bindElements() {
 			decryptFormData();
 		}, 100);
 	});
+
+
+
+$('input[id=advancedTxOptions]').change(function() {
+		if (this.checked) {
+			$("#taTxGas").prop('disabled', false);
+			$("#taTxGasPrice").prop('disabled', false);
+			$("#taTxData").prop('disabled', false);
+			$("#taTxNonce").prop('disabled', false);
+		} else {
+			$("#taTxGas").val("21000");
+			$("#taTxGas").prop('disabled', true);
+
+			$("#taTxGasPrice").val("20000000000");
+			$("#taTxGasPrice").prop('disabled', true);
+
+			$("#taTxData").val("");
+			$("#taTxData").prop('disabled', true);
+
+			$("#taTxNonce").prop('disabled', true);
+			$("#taTxNonce").val(web3.eth.getTransactionCount($("#accountAddress").html()));
+		}
+	});
+$('input[id=advancedTxOptionsContract]').change(function() {
+		if (this.checked) {
+			$("#taTxGasPriceContract").prop('disabled', false);
+			$("#taTxNonceContract").prop('disabled', false);
+		} else {
+			$("#taTxGasPriceContract").val("20000000000");
+			$("#taTxGasPriceContract").prop('disabled', true);
+
+			$("#taTxNonceContract").prop('disabled', true);
+			$("#taTxNonceContract").val(web3.eth.getTransactionCount($("#accountAddress").html()));
+		}
+	});
+
+
+
+
+
 	$('input[type=radio][name=typeOfKeyRadio]').change(function() {
 		PrivKey = "";
 		currentAccount="";
@@ -265,6 +305,7 @@ function walletDecryptSuccess() {
 	setWalletBalance();
 	$("#decryptStatus").html('<p class="text-center text-success"><strong> Wallet successfully decrypted</strong></p>').fadeIn(2000);
 	$("#wallettransactions").show();
+	$("#taTxNonce").val(web3.eth.getTransactionCount($("#accountAddress").html()));
 }
 
 function walletDecryptFailed(err) {
@@ -312,7 +353,7 @@ function hideAllMainContainers() {
 	$("#paneContracts").hide();
 	$("#bulk-generate").parent().removeClass('active');
 	$("#generate-wallet").parent().removeClass('active');
-	$("#send-transaction").parent().removeClass('active');
+	$("#access-account").parent().removeClass('active');
 	$("#interact-contract").parent().removeClass('active');
 	$("#popular-contracts").parent().removeClass('active');
 	$("#help").parent().removeClass('active');

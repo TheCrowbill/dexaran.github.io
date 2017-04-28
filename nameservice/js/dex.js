@@ -19,6 +19,48 @@
 
     }
 
+    function dropdownAdvOptsContract() {
+      $('#divtxAdvancedContract').show();
+      $('#btnDropdownAdvOptContract').hide();
+      $('#btnHideAdvOptContract').show();
+    }
+
+        function hideAdvOptsContract() {
+      $('#divtxAdvancedContract').hide();
+      $('#btnDropdownAdvOptContract').show();
+
+      $('#btnHideAdvOptContract').hide();
+      
+    }
+        function dropdownAdvOpts() {
+      $('#divtxAdvanced').show();
+      $('#btnDropdownAdvOpt').hide();
+      $('#btnHideAdvOpt').show();
+    }
+
+        function hideAdvOpts() {
+      $('#divtxAdvanced').hide();
+      $('#btnDropdownAdvOpt').show();
+
+      $('#btnHideAdvOpt').hide();
+      
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function initiateNameContract() {
         $('#functionsDropdownList').html("");
         $('#readWriteContract').hide();
@@ -51,12 +93,15 @@
     function generateContractCallTx() {
 
       if(currentAccount!="") {
+        $('#advancedTxOptionsContract').removeAttr("checked");
+        $('#sendContractTxResult').html("");
+        $("#taTxNonceContract").val(web3.eth.getTransactionCount($("#accountAddress").html()));
         $('#currentAccountCheck').html("Your current account: " + currentAccount);
         $("#contractTxInfo").show();
         $("#tarawCallContractTx").val(getContractTxData());
       }
       else {
-        $('#currentAccountCheck').html(`<p> You have no unlocked wallet to send transaction.</p><a id="send-transaction" class="ptabs" showId="paneSendTrans"> Unlock wallet first! </a>`);
+        $('#currentAccountCheck').html(`<p> You have no unlocked wallet to send transaction.</p><a id="access-account" class="ptabs" showId="paneSendTrans"> Unlock wallet first! </a>`);
       }
       //alert(rdataContractTx.raw);
      // alert(rdataContractTx.signed);
@@ -90,11 +135,13 @@
     function sendContractTx() {
 
     $('#sendContractTxResult').html("");
-    var addressNonce = web3.eth.getTransactionCount(currentAccount);
+
+
+    var addressNonce = $("#taTxNonceContract").val();
 
     var tmpValue1 = String(web3.toWei($('#etherToContract').val(), 'ether'));
     var nonce1 = padLeftEven(BNtoHex(new BigNumber(addressNonce)));
-    var gasPrice1 = padLeftEven(BNtoHex(new BigNumber(0).plus(20000000000).toDigits(1))); 
+    var gasPrice1 = padLeftEven(BNtoHex(new BigNumber($('#taTxGasPriceContract').val())));
     var gasLimit1 = padLeftEven(BNtoHex(new BigNumber($('#gasToContract').val())));
     var value1 = padLeftEven(BNtoHex(new BigNumber(tmpValue1)));
 
@@ -586,10 +633,14 @@ if (!(contractFunctions[index].outputs.length > 0) || (contractFunctions[index].
 try{
 
     if (PrivKey.length != 64) throw "Invalid Private key, try again";
-    if (!$.isNumeric($('#sendtxamount').val()) || $('#sendtxamount').val() <= 0) throw "Invalid amount, try again";
+    if (!$.isNumeric($('#sendtxamount').val()) || $('#sendtxamount').val() < 0) throw "Invalid amount, try again";
         var uri = 'https://mewapi.epool.io';
     //var uri = 'https://api.gastracker.io/web3';
     var web3 = new Web3(new Web3.providers.HttpProvider(uri));
+    if($("#taTxNonce").prop('disabled')){
+      //alert($("#taTxNonce").prop('disabled'));
+      $("#taTxNonce").val(web3.eth.getTransactionCount($("#accountAddress").html()));
+    }
         $("#tarawtx").val("");
         $("#tasignedtx").val("");
         $("#txsendstatus").html('')
@@ -607,14 +658,26 @@ try{
 
     if (!validateEtherAddress(toAddress)) throw "Invalid to Address, try again";
     var addressFrom = $("#accountAddress").html();
-    var addressNonce = web3.eth.getTransactionCount(addressFrom);
+    var addressNonce;
+    if($("#taTxNonce").val()=="") {
+      addressNonce = web3.eth.getTransactionCount(addressFrom);
+    } else {
+      addressNonce =$("#taTxNonce").val();
+    }
 
     var nonce = padLeftEven(BNtoHex(new BigNumber(addressNonce)));
 
     var tmpValue = String(web3.toWei($('#sendtxamount').val(), 'ether'));
+    var gasPrice = padLeftEven(BNtoHex(new BigNumber($('#taTxGasPrice').val())));
+    var gasLimit = padLeftEven(BNtoHex(new BigNumber($('#taTxGas').val())));
+    var sentData = $('#taTxData').val();
+    //TODO
+    //I want to allow inputs of HEX data but this will be serialized into HEX automatically
+    //So I need to decode this into ASCII before it will be turned into HEX again.
 
-    var gasPrice = padLeftEven(BNtoHex(new BigNumber(0).plus(20000000000).toDigits(1))); 
-    var gasLimit = padLeftEven(BNtoHex(new BigNumber(22000))); 
+    sentData = web3.toAscii(sentData);
+
+
     var value = padLeftEven(BNtoHex(new BigNumber(tmpValue)));
 
     var rawTx = {
@@ -623,7 +686,7 @@ try{
       gasLimit: '0x'+gasLimit,
       to: toAddress,
       value: '0x'+value,
-      data: ''
+      data: ''+sentData
     };
     var privateKey = new Buffer(PrivKey, 'hex');
     var tx = new Tx(rawTx);
@@ -654,6 +717,7 @@ try{
         web3.eth.sendRawTransaction($("#tasignedtx").val(), function(err, result) {
         $("#txsendstatus").html('<p class="text-center text-success"><strong> Transaction submitted. TX ID:  </strong><a href="http://gastracker.io/tx/'+ result + '">'+ result + '</a></p>');
       });
+        $("#taTxNonce").val(web3.eth.getTransactionCount($("#accountAddress").html()));
   }
 
     function dexGetBalance() {

@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head>
+    <title>DEX ICO
+
+    </title><script type="text/javascript"
+src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="icon" href="classic-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="DEX_Token/app.css" data-skrollr-stylesheet="">
+    <link rel="stylesheet" type="text/css" href="DEX_Token/slick.css">
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="DEX_Token/slick-theme.css">
+
+    <link rel="stylesheet" href="/bootstrap-uetoken.css">
+    <link rel="stylesheet" href="/uetoken.css">
+    <link rel="stylesheet" href="/tether.css">
+
+    <link rel="stylesheet" href="/css.css">
+    <link rel="stylesheet" href="/font-awesome.css">
+
+    <style type="text/css">
+
+#back-1 {
+    background-color: #234423;
+    border: 4px double black;
+    padding: 10px;
+}
+
+#aboutIt {
+  position: relative;
+}
+#body {
+    background-color: #000000;
+}
+#white-texted-div {
+    color: #ffffff;
+}
+
+#col-lg-6 {
+  content: "";
+  z-index: -1;
+    background: url(cell-blue.jpg) 0 0 repeat;
+    opacity: 0.35;
+    filter: alpha(opacity = 2);
+}
+
+.navWrap {
+    background: url(AXION.png) -50% 80% repeat;
+}
+
+#aboutIt:before {
+  content: "";
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  top: -22%;
+  left: -7%;
+  z-index: -1;
+    background: url(asset.jpg) 0 0 repeat;
+    background-size: 130% 130%;
+    background-color: #000000;
+   -webkit-transition: all 25s;
+  -moz-transition: all 25s;
+  -ms-transition: all 25s
+  -o-transition: all 25s;
+  transition: all 25s;
+}
+
+.transform:before {
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  -o-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+
+  -webkit-background-size: 130%;
+  -moz-background-size: 130%;
+  -o-background-size: 130%;
+  background-size: 130%;
+}
+
+
+#galaxyable {
+  position: relative;
+    background-color: unset;
+}
+
+#galaxyable:before {
+  content: "";
+  position: absolute;
+    background-color: #333333;
+  width: 140%;
+  height: 140%;
+  top: -22%;
+  left: -7%;
+  z-index: -1;
+    background: url(milkyway.jpg) 0 0 repeat;
+    background-size: 130% 130%;
+    background-color: #000000;
+   -webkit-transition: all 25s;
+  -moz-transition: all 25s;
+  -ms-transition: all 25s
+  -o-transition: all 25s;
+  transition: all 25s;
+}
+
+.fadable:before {
+    opacity: 0.35;
+    filter: alpha(opacity = 2);
+}
+    </style>
+
+    <script type="text/javascript">
+
+/*
+.transform {
+  -webkit-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  -o-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+}*/
+
+
+
+var bg_Offset = 0;
+var fade_Offset = 0;
+var flag = true;
+var fade_flag = true;
+var start = true;
+function scroll_bg(){
+  if(start) {
+        $("#aboutIt").addClass('transform');
+        $("#aboutIt").addClass('fadable');
+        $("#galaxyable").addClass('fadable');
+    start = false;
+  }
+    bg_Offset = bg_Offset + 1;
+    fade_Offset = fade_Offset + 1;
+
+
+    if (fade_Offset > 15) {
+      fade_Offset = 0;
+      if(fade_flag) {
+        $("#aboutIt").addClass('fadable');
+        $("#galaxyable").addClass('fadable');
+        fade_flag = false;
+      }
+      else {
+        $("#aboutIt").removeClass('fadable');
+        $("#galaxyable").removeClass('fadable');
+        fade_flag = true;
+      }
+    }
+
+    if (bg_Offset > 40) {
+      bg_Offset = 0;
+      if(flag) {
+        $("#aboutIt").addClass('transform');
+        flag = false;
+      }
+      else {
+        $("#aboutIt").removeClass('transform');
+        flag = true;
+      }
+    } 
+}
+$(document).ready(function(){ setInterval("scroll_bg()",500); });
+
+
+</script>
+  </head>
+  <body id="body" data-whatinput="mouse">
+
+    <div class="warning alert" id="headerIE" ></div>
+    <!-- </div>
+    </div> -->
+    
+      <div class="navWrap">
+        <nav class="row">
+          <div>
+            <div>
+    
+              <div>
+                <h1 ><img src="classic-logo.png"></img><small style="color:#b0b0b0;">Ethereum Commonwealth ICO</small><p style="color: #99ff99; font-size: 24px;">The destiny of the project is in your hands!</p></h1>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    
+    <section id="aboutIt" aria-disabled="true">
+      <div class="row slickCar">
+        <div class="one-time small-9 columns slick-initialized slick-dotted" role="toolbar">
+
+          
+        <div id="white-texted-div" align="left">
+          <div> <p> </p> </div>
+                <div class="col-lg-6">
+                    <div class="card card-inverse card-primary">
+                        <div class="card-block">
+                            <h4 class="card-title">DEX token and ICO contracts</h4>
+                            <h6 class="card-subtitle mb-2"></h6>
+                            <hr class="jumbotron-hr">
+                            <p class="card-text text-white">
+                                To participate in the ICO, just send ETC to the ICO/crowdsale
+                                contract. Make sure you provide enough gas for the transaction - 100,000 required. You will receive 1 DEX for each 1 sent ETC.
+                            </p>
+                            <p class="card-text text-white text-center" style="word-break: break-all; font-size: 32px;"><small>ICO contract:<br><strong>
+                                0x488c9e2df11ac9d19eb07df362cb174ffd4724d8
+                            </strong></small></p>
+                            <div class="text-center">
+                                View <a class="text-white" href="https://github.com/Dexaran/ICO" target="_blank">source code</a>
+                                or <a class="text-white" href="http://gastracker.io/addr/0x488c9e2df11ac9d19eb07df362cb174ffd4724d8" target="_blank">address on gastracker</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          <div><p> <br><br><br></p></div>
+          <h4> <strong>What this ICO is?</strong> </h4>
+          <p> I'm <a href="https://github.com/Dexaran">Dexaran</a> from Ethereum Classic community. This ICO is my personal attempt to raise money to realize my ideas about the development of Ethereum Classic. I've been a volunteer developer since this project comes to existence. I don't agree with the current visions of the development of ETC, and it seems that we are moving in wrong direction.<br><br>I think that current situation is a result of an inefficient distribution of human resources, while two separate development groups work on the same things for two almost identical projects separately.<br><br>I'm afraid that this will lead to the fact that ETC will be considered a deprecated project, as soon as Ethereum carries out the next valuable update.</p>
+        </div>
+        </div>
+      </div>
+    
+      <div class="row align-stretch">
+    
+        <div class="small-12 columns">
+          <h3 style="color: white;"> My main ideas are: </h3>
+          <div class="row">
+    
+            <div id="aboutWrap1" class="small-12 med-large-expand columns">
+              <div class="row align-center">
+                <div class="small-12 columns">
+                <h4> Infrastructure improvements </h4>
+                </div>
+              </div>
+              <div id="about1" class="row align-center">
+                <ul>
+                  <li><a href="https://dexaran.github.io/nameservice/#access-account" tabindex="0">DexNS</a></li>
+                  <li><a href="#PRCampaign" tabindex="0">PR Company</a></li>
+                  <li><a href="#codingstandard" tabindex="0">Solidity coding standard</a></li>
+                  <li><a href="#governancesystem" tabindex="0">Governance system</a></li>
+                  <li><a href="https://github.com/Dexaran/DecentralizedEXchange" tabindex="0">Token exchange</a></li>
+                </ul>
+              </div>
+            </div>
+    
+            <div id="aboutWrap2" class="small-12 med-large-expand columns">
+              <div class="row align-center">
+                <div class="small-12 columns">
+                <h4> Maintaining compatibility with Ethereum </h4>
+                </div>
+              </div>
+              <div id="about2" class="row align-center">
+                <ul>
+                  <li><a href="https://github.com/ethereumproject/go-ethereum" tabindex="0">GETH Classic</a></li>
+                  <li><a href="https://github.com/ethereum/mist/releases" tabindex="0">Mist Classic</a></li>
+                  <li><a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn" tabindex="0">Port of MetaMask</a></li>
+                  <li><a href="https://github.com/ethereumproject/ECIPs/issues/41" tabindex="0">ECNS</a></li>
+                  <li><a data-open="mosaic" class="mosaicTitle" aria-controls="mosaic" id="7xfg15-reveal" aria-haspopup="true" tabindex="0"></a></li>
+                </ul>
+              </div>
+            </div>
+
+                        <div id="aboutWrap3" class="small-12 med-large-expand columns">
+              <div class="row align-center">
+                <div class="small-12 columns">
+                <h4> Important protocol upgrades </h4>
+                </div>
+              </div>
+              <div id="about1" class="row align-center">
+                <ul>
+                  <li><a href="https://github.com/raiden-network/raiden" tabindex="0">Raiden</a></li>
+                  <li><a href="http://swarm-guide.readthedocs.io/en/latest/introduction.html" tabindex="0">SWARM Classic</a></li>
+                  <li><a href="https://github.com/ethereumproject/ECIPs/issues/44" tabindex="0">Virtual machine</a></li>
+                  <li><a href="https://blog.ethereum.org/2016/12/05/zksnarks-in-a-nutshell/" tabindex="0">zk-SNARKs</a></li>
+                  <li><a data-open="lightwallet" class="lightwalletTitle" aria-controls="lightwallet" id="tklavz-reveal" aria-haspopup="true" tabindex="0"></a></li>
+                </ul>
+              </div>
+            </div></section>
+    
+    
+    <div id="modals">
+    <div class="reveal xlarge row row2" id="multisig" data-reveal="hazih8-reveal" aria-labelledby="cprp57-reveal" role="dialog" aria-hidden="true" data-yeti-box="multisig" data-resize="multisig">
+      <div class="row">
+        <h1 class="large-2 small-12 columns multisigTitle">Multisig Contracts</h1>
+        <div class="small-12 large-10 columns">
+    </div>
+        <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="row align-center buttons">
+        <div class="small-10 large-10 columns">
+        <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+      </div>
+      </div>
+    </div>
+    
+    <div class="reveal xlarge row1" id="reputation" data-reveal="8unpbt-reveal" aria-labelledby="0k5gqa-reveal" role="dialog" aria-hidden="true" data-yeti-box="reputation" data-resize="reputation">
+      <div class="row">
+      <h1 class="large-2 small-12 columns reputationTitle">Node Reputation</h1>
+      <div class="small-12 large-10 columns">
+        
+      </div>
+      <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="row align-center buttons">
+      <div class="small-10 large-10 columns">
+      <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+    </div>
+    </div>
+    </div>
+    
+    <div class="reveal row2" id="messaging" data-reveal="7gxbty-reveal" aria-labelledby="vfe21r-reveal" role="dialog" aria-hidden="true" data-yeti-box="messaging" data-resize="messaging">
+      <div class="row">
+      <h1 class="large-2 small-12 columns messagingTitle">Messaging</h1>
+      <p class="messaging small-12 large-10 columns" data-i18n="[html]messaging">Messages
+ can be sent along with XEM transactions or by themselves. This can be 
+done in unencrypted/encrypted/hex formats depending on the user or 
+programmer’s needs.</p>
+      <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="row align-center buttons">
+      <div class="small-10 large-10 columns">
+      <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+    </div>
+    </div>
+    </div>
+    
+    <div class="reveal row1" id="architecture" data-reveal="zhd8zh-reveal" aria-labelledby="ikpp4g-reveal" role="dialog" aria-hidden="true" data-yeti-box="architecture" data-resize="architecture">
+      <div class="row">
+        <h1 class="large-2 small-12 columns architectureTitle">2-Tiered Design</h1>
+        <p class="architecture small-12 large-10 columns" data-i18n="[html]architecture">NEM’s
+ platform was designed as a two-tier solution.  The NCC, light, and 
+mobile wallets are the client or wallet tier and the NIS is the server 
+tier. Not only does the NIS have a full set of <a href="http://bob.nem.ninja/docs/">API's</a> but the NCC also has a webserver with useful <a href="http://nem.io/ncc/index.html">API's</a>.
+ These two layers create a firewall of security in between the wallet 
+where all important information is stored and signed, and the node that 
+announces transactions.</p>
+        <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="row align-center buttons">
+      <div class="small-10 large-10 columns">
+      <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+    </div>
+    </div>
+    </div>
+    
+    <div class="reveal row2" id="harvesting" data-reveal="5pzbkk-reveal" aria-labelledby="8ysaou-reveal" role="dialog" aria-hidden="true" data-yeti-box="harvesting" data-resize="harvesting">
+      <div class="row">
+        <h1 class="large-2 small-12 columns harvestingTitle">Harvesting</h1>
+        <div class="small-12 large-10 columns">
+          <p class="harvesting" data-i18n="[html]harvesting">In NEM  <a href="http://nem.io/NEM_techRef.pdf#subsection.5.3">harvesting</a>
+ is the act of forming blocks (mining/forging). A harvester must have at
+ least 10,000 vested XEM in his/her account and be running a booted and 
+synchronized node. Once a block is formed by that harvester, a new block
+ is added to the chain and all the fees collected from that block will 
+be delivered to the harvester’s account.
+</p>
+          <p class="harvesting2" data-i18n="[html]harvesting2">NEM has additionally enabled a feature called <a href="http://blog.nem.io/how-local-and-delegated-harvesting-works/">delegated harvesting</a>.
+  This is when a person is able to request other people to form blocks 
+and process fees for them, but done in a safe and secure way so that a 
+person’s funds are not ever locked up, and fees are always given 
+directly to the person that activated delegated harvesting, not the 
+person that was harvesting for them. </p>
+        </div>
+        <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="row align-center buttons">
+        <div class="small-10 large-10 columns">
+        <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+      </div>
+      </div>
+    </div>
+    
+    <div class="reveal row2" id="mosaic" data-reveal="3jhvdl-reveal" aria-labelledby="7xfg15-reveal" role="dialog" aria-hidden="true" data-yeti-box="mosaic" data-resize="mosaic">
+      <div class="row">
+        <h1 class="large-2 small-12 columns mosaicTitle">Mosaic</h1>
+        <div class="small-12 large-10 columns">
+          <p class="mosaic" data-i18n="[html]mosaic">NEM’s asset feature is called <a href="http://blog.nem.io/mosaics-and-namespaces-2/">Mosaics</a>.
+ The mosaics themselves are customizable by amount in either a fixed 
+capped or mutable quantity. They can be designed to be transferable or 
+not, divisible or not, have personalized descriptions, and can be sent 
+alongside encrypted messages in one transaction. Mosaics can be applied 
+with a levy so that any mosaic being sent on the network will have to 
+have a special fee paid above the normal transactions fees. This levy 
+fee can be assigned to be nem:xem (which is the mosaic notation for 
+normal XEM coins) or any other mosaic on the NEM blockchain. And lastly 
+each mosaic gets a name that is under a unique domain in the Namespace 
+system. </p>
+          <p class="mosaic2" data-i18n="[html]mosaic2">Mosaic’s current 
+version is a unique, advanced and customizable asset creation feature 
+with later versions planned to carry even more additional features.
+</p>
+        </div>
+        <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="row align-center buttons">
+        <div class="small-10 large-10 columns">
+        <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+      </div>
+      </div>
+    </div>
+    
+    <!-- <div class="reveal row1" id="ncc" data-reveal>
+      <div class="row">
+        <h1 class="large-2 small-12 columns nccTitle">NCC</h1>
+        <p class="ncc small-12 large-10 columns" data-i18n="[html]ncc">NEM's multisig solution is “on blockchain”. This doesn’t sound like a big deal at first, but if one really takes a closer look at it, the advantages are significant. With other platforms, multisig has always been client or wallet based which means each implementation is not compatible across many different platforms, even if it is of the same crypto currency. This is not the case with NEM.</p>
+        <button class="close-button" data-close aria-label="Close reveal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="row align-center buttons">
+        <div class="small-10 large-10 columns">
+        <button type="button" class="button" data-close aria-label="Close reveal">Close</button>
+      </div>
+      </div>
+    </div> -->
+    
+    <div class="reveal row3" id="nis" data-reveal="scvjc6-reveal" aria-labelledby="t9kxm6-reveal" role="dialog" aria-hidden="true" data-yeti-box="nis" data-resize="nis">
+      <div class="row">
+        <h1 class="large-2 small-12 columns nisTitle">NIS</h1>
+        <p class="nis small-12 large-10 columns" data-i18n="[html]nis">The
+ “NEM Infrastructure Server” (NIS) is the backbone of the NEM network. 
+It is installed on decentralized nodes throughout the internet making it
+ stable and secure. It is used to relay and process transactions. It has
+ been designed to be scalable, safe, and very stable and since NEM's 
+launch; it has not ever forked and therefore needed an emergency 
+rollback. </p>
+        <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="row align-center buttons">
+        <div class="small-10 large-10 columns">
+        <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+      </div>
+      </div>
+    </div>
+    
+    <div class="reveal row3" id="consensus" data-reveal="bu4f1x-reveal" aria-labelledby="kw8peg-reveal" role="dialog" aria-hidden="true" data-yeti-box="consensus" data-resize="consensus">
+      <div class="row">
+        <h1 class="large-2 small-12 columns consensusTitle">POI</h1>
+        <div class="small-12 large-10 columns">
+          <p class="consensus" data-i18n="[html]consensus">"Proof-of-Importance"
+ (POI) is the first reputation based blockchain algorithm that just 
+doesn’t reward those that hold as much stake as possible without 
+spending or those that do unrelated work outside of a blockchain 
+ambivalent to the actual activity in it. </p>
+          <p class="consensus2" data-i18n="[html]consensus2">Each 
+account’s individual importance score is calculated by stake, how much 
+of that stake has been vested, the transactions going out of the 
+account, and with which accounts it transacts. This encourages accounts 
+on the NEM blockchain to be active accounts in the network</p>
+          <p class="consensus3" data-i18n="[html]consensus3">To learn more about POI in NEM please read Chapter 7 of the <a href="http://nem.io/NEM_techRef.pdf#section.7">NEM Technical Reference</a>.</p>
+        </div>
+        <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="row align-center buttons">
+        <div class="small-10 large-10 columns">
+        <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+      </div>
+      </div>
+    </div>
+    
+    <div class="reveal row3" id="newcode" data-reveal="nyljc3-reveal" aria-labelledby="4ngd9o-reveal" role="dialog" aria-hidden="true" data-yeti-box="newcode" data-resize="newcode">
+      <div class="row">
+        <h1 class="large-2 small-12 columns newcodeTitle">100% New Code</h1>
+        <div class="small-12 large-10 columns">
+          <ul>
+            <!-- <li id="newcode2" data-i18n="[html]newcode2"></li> -->
+            <li id="newcode3" data-i18n="[html]newcode3">First reputation based consensus mechanism called POI</li>
+            <li id="newcode4" data-i18n="[html]newcode4">First ever P2P time sync of nodes</li>
+            <li id="newcode5" data-i18n="[html]newcode5">First use of a new kind of spam guard</li>
+            <li id="newcode6" data-i18n="[html]newcode6">First network node reputation system</li>
+            <li id="newcode7" data-i18n="[html]newcode7">First with blockchain based multisig 2.0 contracts</li>
+            <li id="newcode8" data-i18n="[html]newcode8">First with mosaics</li>
+            <li id="newcode9" data-i18n="[html]newcode9">First use of a new version of namepsaces</li>
+            <li id="newcode10" data-i18n="[html]newcode10">First use of delegated harvesting (safe proxy mining)</li>
+            <li id="newcode11" data-i18n="[html]newcode11">And also includes the following:</li>
+            <li id="newcode12" data-i18n="[html]newcode12">Messaging in unencrypted/encrypted/hex formats</li>
+            <li id="newcode13" data-i18n="[html]newcode13">Lightwallet's that can interact with any node on the network</li>
+            <li id="newcode14" data-i18n="[html]newcode14">Supernodes and node rewards</li>
+          </ul>
+        </div>
+        <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="row align-center buttons">
+        <div class="small-10 large-10 columns">
+        <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+      </div>
+      </div>
+    </div>
+    
+    <!-- <div class="reveal row1" id="blocktimes" data-reveal>
+      <div class="row">
+        <h1 class="large-2 small-12 columns blocktimesTitle">Block Times</h1>
+        <p class="blocktimes small-12 large-10 columns" data-i18n="[html]blocktimes">NEM's multisig solution is “on blockchain”. This doesn’t sound like a big deal at first, but if one really takes a closer look at it, the advantages are significant. With other platforms, multisig has always been client or wallet based which means each implementation is not compatible across many different platforms, even if it is of the same crypto currency. This is not the case with NEM.</p>
+        <button class="close-button" data-close aria-label="Close reveal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="row align-center buttons">
+        <div class="small-10 large-10 columns">
+        <button type="button" class="button" data-close aria-label="Close reveal">Close</button>
+      </div>
+      </div>
+    </div> -->
+    
+    <div class="reveal row3" id="xem" data-reveal="njn0zd-reveal" aria-labelledby="2hvb1u-reveal" role="dialog" aria-hidden="true" data-yeti-box="xem" data-resize="xem">
+      <div class="row">
+        <h1 class="large-2 small-12 columns xemTitle">XEM</h1>
+        <p class="xem small-12 large-10 columns" data-i18n="[html]xem">XEM
+ is the fuel of the NEM ecosystem. It can be used to pay transaction 
+fees on the NEM network, or used on its own as a cryptocurrency. It is 
+also the first mosaic on the NEM blockchain, nem:xem, and therefore can 
+be used like any other mosaic.
+ A finite supply of 9 billion XEM were created during the Genesis block 
+and no more will ever be made. </p>
+        <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="row align-center buttons">
+        <div class="small-10 large-10 columns">
+        <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+      </div>
+      </div>
+    </div>
+    
+    <div class="reveal row2" id="namespace" data-reveal="4c68bs-reveal" aria-labelledby="yy5m2s-reveal" role="dialog" aria-hidden="true" data-yeti-box="namespace" data-resize="namespace">
+      <div class="row">
+        <h1 class="large-2 small-12 columns namespaceTitle">Namespace</h1>
+        <div class="small-12 large-10 columns">
+          <p class="namespace" data-i18n="[html]namespace"><a href="http://blog.nem.io/mosaics-and-namespaces-2/">Namespaces</a>
+ on the NEM system is a domain naming system, not unlike that of the 
+internet. There are higher level domains and subdomains. This allows one
+ person with one domain to create many different subdomains for their 
+different projects or outside business accounts. It also helps to build 
+and maintain a reputation system for Mosaics.</p>
+          <p class="namespace2" data-i18n="[html]namespace2">A creator 
+owning the root domain namespace can create as many sub-domains as 
+wanted using a convention similar to the Java namespace convention, 
+i.e., separated by a dot \".\" to represent a domain or subdomain and a 
+colon \":\" to represent the name of an asset. This gives the creator a 
+practically limitless number of mosaics that can be defined within a 
+practically limitless number of sub-domains.
+</p>
+          <p class="namespace3" data-i18n="[html]namespace3">The 
+sub-levels of a namespace can act as the actual name of the asset, or in
+ some cases can be a class of assets as it is itself a sub-domain with 
+lots of assets under that sub-domain name. This means that last part of a
+ string will always be the name of the individual asset on the NEM 
+blockchain and the prior names will act as the domain and/or subdomain 
+for that asset.
+</p>
+        </div>
+        <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="row align-center buttons">
+        <div class="small-10 large-10 columns">
+        <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+      </div>
+      </div>
+    </div>
+    
+    <div class="reveal row1" id="spamProtect" data-reveal="c55ntk-reveal" aria-labelledby="6g18ui-reveal" role="dialog" aria-hidden="true" data-yeti-box="spamProtect" data-resize="spamProtect">
+      <div class="row">
+        <h1 class="large-2 small-12 columns spamTitle">Spam Protection</h1>
+        <p class="spam small-12 large-10 columns" data-i18n="[html]spam">NEM uses <a href="http://nem.io/NEM_techRef.pdf#subsection.4.4">localized spam protection</a>.
+ It is activated after all blocks have reached full capacity and only 
+the accounts producing spam are affected. The spamming accounts have 
+their transactions fees increasingly raised in relation to the spam they
+ produce. They therefore can still spam, but it increasingly costs more 
+in proportion to their spam volume. At the same time normal accounts in 
+the network keep their low transaction costs.
+</p>
+        <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="row align-center buttons">
+        <div class="small-10 large-10 columns">
+        <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+      </div>
+      </div>
+    </div>
+    
+    <div class="reveal row1" id="supernodes" data-reveal="3w9k2m-reveal" aria-labelledby="j28kjk-reveal" role="dialog" aria-hidden="true" data-yeti-box="supernodes" data-resize="supernodes">
+      <div class="row">
+        <h1 class="large-2 small-12 columns supernodesTitle">Supernodes</h1>
+        <p class="supernode small-12 large-10 columns" data-i18n="[html]supernode">The <a href="http://blog.nem.io/supernodes/">NEM Supernode Program</a>
+ gives awards to high performance and stable nodes on the NEM network. 
+To run a supernode a person must have at least 3,000,000 XEM assigned as
+ a delegated account booting that node and pass regular performance 
+checks. These nodes help support the network and ensure it can process 
+large amounts of data and reliably service mobile and light wallets.</p>
+        <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="row align-center buttons">
+        <div class="small-10 large-10 columns">
+        <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+      </div>
+      </div>
+    </div>
+    
+    <div class="reveal row1" id="lightwallet" data-reveal="jwmbuq-reveal" aria-labelledby="tklavz-reveal" role="dialog" aria-hidden="true" data-yeti-box="lightwallet" data-resize="lightwallet">
+      <div class="row">
+        <h1 class="large-2 small-12 columns lightwalletTitle">Lightwallet</h1>
+        <div class="small-12 large-10 columns">
+          <p class="lightwallet" data-i18n="[html]lightwallet">NEM has 
+three versions of wallets that can be run locally and independently of 
+an NIS. The NCC is the first wallet and comes equipped with APIs. 
+Open-source Android and iOS mobile apps have been built and are released
+ on the testnet for full testing and will be coming to the App Store and
+ the Google Play store soon. And lastly there is the new lightwallet. </p>
+          <p class="lightwallet2" data-i18n="[html]lightwallet2">NEM’s 
+lightwallet is a fully equipped wallet but in the form of a browser 
+webpage and written in javascript that, like all NEM wallets, does all 
+important signing locally. So now one can have just one html file to 
+send XEM in a public network using any NIS without risking the safety of
+ the account. Every NIS serves the lightwallet via port 7777 but if 
+connecting to any node other than a trusted one, it is recommended to 
+run a standalone lightwallet version for full security. </p>
+          <p class="lightwallet3" data-i18n="[html]lightwallet3">The <a href="http://blog.nem.io/lightwallet/">lightwallet</a>
+ is important because it enables any merchant to easily incorporate the 
+lightwallet javascript code into their websites to facilitate payments. 
+This can be done in minutes and the implications can be profound as the 
+NEM blockchain data become easily available and accessible by the 
+merchant.
+
+</p>
+        </div>
+        <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="row align-center buttons">
+        <div class="small-10 large-10 columns">
+        <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+      </div>
+      </div>
+    </div>
+    
+    <div class="reveal row3" id="nisApis" data-reveal="1rhyc5-reveal" aria-labelledby="v1bk0m-reveal" role="dialog" aria-hidden="true" data-yeti-box="nisApis" data-resize="nisApis">
+      <div class="row">
+        <h1 class="large-2 small-12 columns apisTitle">APIs</h1>
+        <p class="nisApis small-12 large-10 columns" data-i18n="[html]nisApis">NEM
+ has easy to use JSONrestful API's that work directly with NIS.  These 
+can be requested for any transaction on any open node for free. </p>
+        <button class="close-button" data-close="" aria-label="Close reveal" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="row align-center buttons">
+        <div class="small-10 large-10 columns">
+        <button type="button" class="button" data-close="" aria-label="Close reveal">Close</button>
+      </div>
+      </div>
+    </div>
+    
+    
+    </div>
+    
+    
+    
+    
+    
+    <section id="stats">
+          <h5 id="data1" align="center">Features that are already in development:</h5>
+      <div class="statsInside">
+        <div id="dataWrap1">
+          <div id="data1">ERC223</div>
+          <h5 id="dataText1">new token standard that solves a security issues of ERC20 that caused loss of $400,000</h5>
+        </div>
+        <div id="dataWrap2">
+          <div id="data2">DexNS</div>
+          <h5 id="dataText2">service for smart-contract upgrading and automated ABI accessing</h5>
+        </div>
+        <div id="dataWrap3">
+          <div id="data3">ECNS</div>
+          <h5 id="dataText3">a port of ENS smart-contract is already developed and it will be deployed soon</h5>
+        </div>
+      </div>
+    </section>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <section id="help">
+      <div class="helpWrap row align-center align-middle">
+          <p><h1 style="color:white;"> Let me share my ideas.</h1></p>
+        
+      <ul>
+        <li class="align-left">
+          <p><h2 style="color:white;">1. What's wrong with Ethereum Classic?</h2></p>
+          <img src="whats_UP_ETC.png"></img>
+            <hr class="my-4">
+          <p style="color:white; font-size:24px; text-indent: 20px;">ETC is still a "moral winner". ETH is still a driver of progress. I think that the main difference here is ideology. I have already <a href="https://www.reddit.com/r/ethereum/comments/68etzn/clear_difference_between_ethereum_classic_etc_and/dgy6jsy/">stated my position</a> earlier.<br>     I don't agree with the Ethereum Foundation on TheDAO hardfork, but I don't want to blame them, I just think differently than they do. It is not necessary to discard the compatibility of the core clients just because of the principles and personal ambitions. <strong>The code doesn't smell.</strong>
+<br><br>
+  <strong>Compilers, virtual machines and programming languages.</strong></p><p style="color:white; font-size:24px; text-indent: 20px;">
+  Last months I worked with Ethereum Foundation members on solving numbers of problems that are related to both our chains. ETH and ETC are using same virtual machines, same programming languages and same compiler for them. As the result of this we have same problems and we can help each other to solve them.
+  <br><br>I have already demonstrated it with my <a href="https://github.com/ethereum/EIPs/issues/223">ERC223</a> that solves problems of <a href="https://www.reddit.com/r/ethereum/comments/6c68mw/new_record_holder_appears_lets_congratulate/">money losses</a> on Ethereum and saves Ethereum Classic from this problem as well.
+  <br>I have also discovered <a href="https://github.com/ethereum/solidity/issues/2517">errors</a> in solidity compiler.
+  <br>I also found important to review the coding standard since experience shows that it is very hard to design a fault-tolerant smart-contract system. I prefer to rely on <a href="https://www.gnu.org/prep/standards/html_node/index.html">GNU coding standard</a>.
+  <br>There are a number of problems that are same for both projects, and I'm concerned about the fact <strong>that none of the ETC developers, apart from me, is involved in solving these problems.</strong>
+          </p>
+            <hr class="my-4">
+        </li>
+        <li>
+          <p><h2 style="color:white;">2. Cooperation instead of competition.</h2></p>
+          <img src="ETC_ETH_Jedi.png"></img>
+            <hr class="my-4">
+             <p style="color:white; font-size:24px; text-indent: 20px;">I think that it will be much more effective to cooperate with ETH instead of competing with it. This will allow all 3d party services to integrate with both chains easier and developers to participate in development of both projects. Ideally, I'm going to start a team that can participate in the development of both ETH and ETC. It will be 2 times more effective to have two teams competent enough to work on both projects.
+              <br><br>It doesn't mean that I want just "copy & paste" all ETH updates. For example I'd like to support updates of governance system and monetary policy.
+              <br><br>I'm against breaking compatibility in technical aspects while it is not really necessary. Such are virtual machine upgrade. I don't think that virtual machine is a part of ideology and it is absolutely irrational to establish a separate team to develop and maintain own virtual machine that will do same things.
+              <br><br>We have lots of common problems that we can solve together! Let's help each other to grow and progress. <strong>The more people are involved in each project, the more quality our work will be.</strong>
+             </p>
+            <hr class="my-4">
+        </li>
+        <li>
+          <p><h2 style="color:white;">3. Roadmap and my main goals.</h2></p>
+          <img src="roadmap.jpg"></img>
+            <hr class="my-4">
+              <ul>
+                <li>
+                  <p style="color:white; font-size:24px; text-indent: -20px;"><strong>1. Restore compatibility of GETH and GETH Classic.</strong><br>This will allow easier adoption of third-party services such are MetaMask and Mist. It will also allow easier adoption of future main upgrades such are Raiden, Swarm, precompiled contracts and Metropolis updates.</p>
+                </li>
+                <li>
+                  <a name="PRCampaign"></a><p style="color:white; font-size:24px; text-indent: -20px;"><strong>2. PR Campaign.</strong><br>I believe that one of the most important things is the atmosphere in the community. Having investigated DASH, PIVX, DECRED, I came to the conclusion that it would be good to hold games, contests, art bounties and other social-oriented events. I think that it will be a good idea to spend a part of funds for small monthly bounties.</p>
+                </li>
+                <li>
+                  <a name="codingstandard"></a><p style="color:white; font-size:24px; text-indent: -20px;"><strong>3. Coding standard.</strong><br>This is one of the important things for contract developers. I think that we should review the coding standard that is currently described in <a href="http://solidity.readthedocs.io/en/develop/style-guide.html">Ethereum Docs</a> and update it to improve contracts code readability. I think that we should base a new coding standard on time-tested <a href="https://www.gnu.org/prep/standards/html_node/index.html">GNU coding standard</a>.</p>
+                </li>
+                <li>
+                  <a name="governancesystem"></a><p style="color:white; font-size:24px; text-indent: -20px;"><strong>4. Maintain developed projects.</strong><br>I'm aiming to finalize <a href="https://github.com/ethereumproject/ECIPs/issues/41">ECNS</a>, <a href="https://github.com/ethereum/EIPs/issues/223">ERC223</a> and <a href="https://dexaran.github.io/nameservice/#access-account">DexNS</a>. I need to hire a web-site developer to improve DexNS web interface, write a patch fo MyEtherWallet to support ECNS and maintain ERC223 if it will be needed.</p>
+                </li>
+                <li>
+                  <p style="color:white; font-size:24px; text-indent: -20px;"><strong>5. Token exchange.</strong><br>I want to finalize a <a href="https://github.com/Dexaran/DecentralizedEXchange">Decentralized Token Exchange</a> which is already in development.</p>
+                </li>
+                <li>
+                  <p style="color:white; font-size:24px; text-indent: -20px;"><strong>6. Protocol upgrades.</strong><br>We should prepare a code base for future protocol upgrades. I think that it will be a good idea to cooperate with Ethereum Foundation developers that are currently working on Raiden and SWARM.</p>
+                </li>
+                <li>
+                  <p style="color:white; font-size:24px; text-indent: -20px;"><strong>7. Governance system.</strong><br>I'm aiming to work in the named direction during the year. After the year will pass we will establish a smart-contract based voting, where DEX tokens would be used.<br><br>On 1st September 2018 I will deploy a voting contract. Everyone can file an issue on github repo of DEX token. We will link github's issues with a smart contract to allow DEX owners to vote on the proposed goals. We will focus on developing top voted proposals.</p>
+                </li>
+              </ul>
+              <p style="color:white; font-size:24px;">Our reality shows that even <a href="https://bitcointalk.org/index.php?topic=1365894.0">one single developer</a> can perform quite a complicated job. It's just a matter of time.<br><br>I will finalize my current projects in any cases, but I can't handle everything at once. I'm aiming to hire at least two developers to team up with me and work on protocol upgrades. I'd like to hire a web-site developer and an employee who will engage in socio-oriented work as well.<br><br>The success of the team depends on how much funds would be contributed during the ICO.</p>
+            <hr class="my-4">
+        </li>
+      </ul>
+      </div>
+    </section>
+    
+    
+    <!-- 
+    <div id="newsWrap">
+        <div id="newsFeed"></div>
+    </div>
+    
+     -->
+    
+    <!--<footer 
+    style="background: url(milkyway.jpg) 40% 40% repeat; "> -->
+
+    <footer id="galaxyable">
+
+      <div style="background-color: ;" class="row align-center align-middle"><h1>ICO details</h1></div>
+      <div style="background-color: ;" class="row" >
+        <div id="back-1" style="background-color: ;" class="column large-3 small-6 small-order-1 large-order-1">
+          <p style="color:white; font-size:24px;">The crowdsale begins on:<br>
+
+July 8th, 2017 at 2:00 P.M. UTC
+</p></div>
+<div id="back-1" style="background-color: ;" class="column large-3 small-6 small-order-1 large-order-1"><p style="color:white; font-size:24px;">The crowdsale ends on:<br>
+
+August 8th, 2017 at 2:00 P.M. UTC</p>
+        </div>
+        <div class="column small-6 small-order-4 large-order-2">
+          <ul>
+            <li>
+          <p style="color:white; font-size:24px;"> <strong>What is DEX token?</strong></p>
+        </li>
+        <li>
+          <p style="color:white; font-size:20px;"> DEX token is a ERC223 standard token. It can be earned during the ICO only. <br>Each participant will receive 1 DEX for 1 contributed ETC.<br>DEX tokens would be used for voting development proposals after the voting would be established <br>(1st September 2018).<br><br>TOKEN contract address: 0x345a9e6c44d546dae5141700372986c4bb532e3d</p>
+        </li>
+        </ul>
+        </div>
+        <div class="column large-3 small-6 small-order-3 large-order-3">
+          <p style="color:white; font-size:24px;"> <strong>Token supply.</strong><br><br>DEX tokens will be issued in proportion to the invested money. Total supply depends on contributions amount.</p>
+        </div>
+        <div class="column large-3 small-6 small-order-4 large-order-4">
+          <p style="color:white; font-size:24px;"> <strong>Will DEX token be traded anywhere?</strong><br><br>As I said earlier, a Decentralized Token Exchange is part of my development plan. I can guarantee that it can be traded on my exchange as soon as I will finish it.</p>
+        </div>
+        <div class="column large-3 small-6 small-order-4 large-order-4">
+          <p style="color:white; font-size:24px;"> <strong>Will you hold your own tokens?</strong><br><br>I would say yes, but I will not earn them initially. I will buy tokens through the ICO like every other participants. I want to have a votes share in my own team of course.</p>
+        </div>
+      </div>
+    </footer>
+</body></html>

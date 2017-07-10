@@ -24,6 +24,7 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script
     padding: 10px;
 }
 #aboutIt {
+  position: static;
 }
 #body {
     background-color: #000000;
@@ -44,7 +45,7 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script
 }
 #aboutIt:before {
   content: "";
-  position: absolute;
+  position: fixed;
   width: 140%;
   height: 140%;
   top: -22%;
@@ -96,6 +97,12 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script
     opacity: 0.35;
     filter: alpha(opacity = 2);
 }
+
+#DIVIDER {
+  position: absolute;
+  background-color: #ffffff;
+}
+
 #aboutWrap1:hover ul li:nth-child(1) a{animation:fontFade .6s .1s}
 #aboutWrap1:hover ul li:nth-child(2) a{animation:fontFade .6s .15s}
 #aboutWrap1:hover ul li:nth-child(3) a{animation:fontFade .6s .30s}
@@ -206,6 +213,7 @@ $(document).ready(function(){ setInterval("scroll_bg()",500); });
           <div><p> <br><br><br></p></div>
 
 
+
           <!-- SHITCODE ... I know. I will hire web-dev soon -->
                 <div id="aboutWrap1" class="small-12 med-large-expand columns">
               <div class="row align-center">
@@ -215,13 +223,12 @@ $(document).ready(function(){ setInterval("scroll_bg()",500); });
               </div>
               <div id="about1" class="row align-center">
                 <ul>
-                  <li><a href="#marker-bounty-1" tabindex="0">MEW patch. In progress. Reward: 7,5 ETC</a></li>
-                  <li><a href="#marker-bounty-2" tabindex="0">Wikipedia page improvements. In progress. Reward: 5 ETC</a></li>
+                  <li><a href="#marker-bounty-1" tabindex="0">MEW patch. In progress. Reward: <strong style="color: #90ffa1;">7,5 ETC</strong></a></li>
+                  <li><a href="#marker-bounty-2" tabindex="0">Wikipedia page improvements. In progress. Reward: <strong style="color: #90ffa1;">5 ETC</strong></a></li>
+                  <li><a href="#marker-bounty-3" tabindex="0">ECNS bugbounty. In progress. Reward: <strong style="color: #90ffa1;">75 ETC</strong> or <strong style="color: #90a1ff;">5,2 ETH</strong></a></li>
                 </ul>
               </div>
             </div><br><br>
-    
-
 
         <div id="back-1" style="background-color: ;" class=""><a name="marker-bounty-1"></a>
           <div>
@@ -268,7 +275,7 @@ $(document).ready(function(){ setInterval("scroll_bg()",500); });
           <p style="color:white; font-size:20px;">#2 Improvements of Ethereum Classic <a href="https://en.wikipedia.org/wiki/Ethereum_Classic">Wikipedia page</a>. Reward: 5 ETC
 </p>
 <br>
-          <p style="color:white; font-size:20px;">Look at <a href="https://en.wikipedia.org/wiki/Ethereum">Ethereum wiki</a>. <img src="Ethereum_wiki.png"></img><br>The Ethereum page has much more content, but the underlying technologies of Ethereum and Ethereum Classic are exactly the same. It is needed to improve ETC wiki and provide more content.
+          <p style="color:white; font-size:20px;">Look at <a href="https://en.wikipedia.org/wiki/Ethereum">Ethereum wiki</a>. <img src="Ethereum_wiki.png"></img><br>The Ethereum page has much more content, but the underlying technologies of Ethereum and Ethereum Classic are exactly same. It is needed to improve ETC wiki and provide more content.
             <br><br>
             Payment process: I will wait 5 days after the changes would be made. After the changes would be reviewed and accepted by Wikipedia I will reward the person who made most valuable changes with 5 ETC.<br><br>
             Uncle rewards: If any other participants would be active enough and make changes too then I will revard them with 1 to 2 ETC.
@@ -278,6 +285,47 @@ $(document).ready(function(){ setInterval("scroll_bg()",500); });
 
 
 </div>
+
+
+
+
+
+<br><br>
+
+
+
+
+
+
+        <div id="back-1" style="background-color: ;" class=""><a name="marker-bounty-3"></a>
+<div>
+          <p style="color:white; font-size:20px;">#3 <a href="https://github.com/Dexaran/ECNS/tree/test">ECNS</a> bugbounty: 75 ETC (or 5,2 ETH)
+</p>
+<br>
+          <p style="color:white; font-size:20px;">ECNS ported from original ENS of Ethereum Foundation.<br> Differences between ENS and ECNS are:<br>
+
+    1. ECNS will not burn funds. There is a special burn address at the Registrar that will receive funds at destroy of the Deed instead of burning them.<br>
+
+    2. ECNS registry natively supports namehash algorithm. It is possible to call namehash(string) and get its nameHash without having to implement the algorithm by third parties.<br>
+
+    3. There is a function to extract stuck ERC20 tokens from each contract: Registry and Registrar. I hope no one will throw tokens into Deed because of it's not a contract that users would interact with and there is no need to spend extra gas for this.<br>
+
+    4. rootNode is .etc<br><br>
+
+            Contracts of ECNS are already deployed on Rinkeby testnet:<br>
+            <a href="https://rinkeby.etherscan.io/address/0xB6FedAA1c1a170eecb4d5C1984eA4023aEb91d64">Hash Registrar</a><br>
+            <a href="https://rinkeby.etherscan.io/address/0xf1c245ae07eddc19b99312b22133914966461110">Registry</a><br><br>
+            If you find and report a critical error that can not be fixed during the contract workflow, you will be rewarded with 75 ETC or 5,2 ETH.
+            <br><br>
+            If you find and report code flaw or minor issue that can affect workflow of the contract you will be also rewarded with 5 to 10 ETC.
+</p>
+</div>
+
+
+</div>
+
+
+
 
 
     </section>

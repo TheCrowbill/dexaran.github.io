@@ -24,7 +24,6 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script
     padding: 10px;
 }
 #aboutIt {
-  position: relative;
 }
 #body {
     background-color: #000000;
@@ -52,7 +51,7 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script
   left: -7%;
   z-index: -1;
     background: url(asset.jpg) 0 0 repeat;
-    background-size: 130% 130%;
+    background-size: 110% 110%;
     background-color: #000000;
    -webkit-transition: all 25s;
   -moz-transition: all 25s;
@@ -97,6 +96,21 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script
     opacity: 0.35;
     filter: alpha(opacity = 2);
 }
+#aboutWrap1:hover ul li:nth-child(1) a{animation:fontFade .6s .1s}
+#aboutWrap1:hover ul li:nth-child(2) a{animation:fontFade .6s .15s}
+#aboutWrap1:hover ul li:nth-child(3) a{animation:fontFade .6s .30s}
+#aboutWrap1:hover ul li:nth-child(4) a{animation:fontFade .6s .45s}
+#aboutWrap1:hover ul li:nth-child(5) a{animation:fontFade .6s .60s}
+#aboutWrap1:hover ul li:nth-child(6) a{animation:fontFade .6s .75s}
+#aboutWrap1:hover ul li:nth-child(7) a{animation:fontFade .6s .90s}
+#aboutWrap1:hover ul li:nth-child(8) a{animation:fontFade .6s .105s}
+#aboutWrap1:hover ul li:nth-child(9) a{animation:fontFade .6s .120s}
+#aboutWrap1:hover ul li:nth-child(10) a{animation:fontFade .6s .135s}
+#aboutWrap1:hover ul li:nth-child(11) a{animation:fontFade .6s .150s}
+#aboutWrap1:hover ul li:nth-child(12) a{animation:fontFade .6s .165s}
+#aboutWrap1:hover ul li:nth-child(13) a{animation:fontFade .6s .180s}
+#aboutWrap1:hover ul li:nth-child(14) a{animation:fontFade .6s .195s}
+#aboutWrap1:hover ul li:nth-child(15) a{animation:fontFade .6s .210s}
     </style>
 
     <script type="text/javascript">
@@ -180,7 +194,6 @@ $(document).ready(function(){ setInterval("scroll_bg()",500); });
                 <div class="col-lg-6">
                     <div class="card card-inverse card-primary">
                         <div class="card-block">
-                            <h3 class="card-title" style="font-size: 52px;">Bounties and contests.</h3>
                             <h6 class="card-subtitle mb-2"></h6>
                             <hr class="jumbotron-hr">
                             <p class="card-text text-white">
@@ -191,25 +204,90 @@ $(document).ready(function(){ setInterval("scroll_bg()",500); });
                     </div>
                 </div>
           <div><p> <br><br><br></p></div>
-          <h4> <strong>Bounty list.</strong> </h4>
+
+
           <!-- SHITCODE ... I know. I will hire web-dev soon -->
-    
-    
-         
+                <div id="aboutWrap1" class="small-12 med-large-expand columns">
+              <div class="row align-center">
+                <div class="small-12 columns">
+          <h3 id="data2" align="center" style="font-size: 32px;">Bounty list:</h3>
+                </div>
+              </div>
+              <div id="about1" class="row align-center">
+                <ul>
+                  <li><a href="#marker-bounty-1" tabindex="0">MEW patch. In progress. Reward: 7,5 ETC</a></li>
+                  <li><a href="#marker-bounty-2" tabindex="0">Wikipedia page improvements. In progress. Reward: 5 ETC</a></li>
+                </ul>
+              </div>
+            </div><br><br>
     
 
 
-        <div id="back-1" style="background-color: ;" class="">
-          <p style="color:white; font-size:24px;">#1 Patch for <a href="http://myetherwallet.com/">MyEtherWallet</a>. Reward: 7,5 ETC
-</p><p style="color:white; font-size:24px;">
+        <div id="back-1" style="background-color: ;" class=""><a name="marker-bounty-1"></a>
+          <div>
+          <p style="color:white; font-size:20px;">#1 Patch for <a href="http://myetherwallet.com/">MyEtherWallet</a>. Reward: 7,5 ETC
+</p>
+
+
+<p style="color:white; font-size:20px;">
             Users find it difficult to distinguish which chain they are in when they use the MEW. The only difference is now a single character in top right corner. I want someone to write a github patch to change color theme when the user will switch to ETC. You should leave blue ETH theme without changes and replace blue colors with green in ETC theme.
-</p><p style="color:white; font-size:24px;"> It should look like this for ETH:</p><img src="ETH1_MEW.png" width="1100" height="500"></img><p style="color:white; font-size:24px;"> And for ETC:</p><img src="ETC1_MEW.png" width="1100" height="500"></img><p style="color:white; font-size:24px;"> I believe that this will significantly reduce the number of user errors. I will pay 7.5 ETC to the person whose patch will be accepted. I think it is only a few lines of code. <a href="https://github.com/kvhnuke/etherwallet">MEW on github</a></p><p style="color:white; font-size:18px;"><br> More bounties coming soon ...</p></div>
+</p>
 
-          </div>
+
+<p style="color:white; font-size:20px;"> It should look like this for ETH:</p>
+<img src="ETH1_MEW.png" width="1100" height="500"></img>
+
+<p style="color:white; font-size:20px;"> And for ETC:</p>
+
+<img src="ETC1_MEW.png" width="1100" height="500"></img>
+
+<p style="color:white; font-size:20px;"> I believe that this will significantly reduce the number of user errors. I will pay 7.5 ETC to the person whose patch will be accepted. I think it is only a few lines of code. <a href="https://github.com/kvhnuke/etherwallet">MEW on github</a></p>
+
+<p style="color:white; font-size:18px;">
+  <br> More bounties coming soon ...</p>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<br><br>
+
+
+
+
+
+
+
+        <div id="back-1" style="background-color: ;" class=""><a name="marker-bounty-2"></a>
+<div>
+          <p style="color:white; font-size:20px;">#2 Improvements of Ethereum Classic <a href="https://en.wikipedia.org/wiki/Ethereum_Classic">Wikipedia page</a>. Reward: 5 ETC
+</p>
+<br>
+          <p style="color:white; font-size:20px;">Look at <a href="https://en.wikipedia.org/wiki/Ethereum">Ethereum wiki</a>. <img src="Ethereum_wiki.png"></img><br>The Ethereum page has much more content, but the underlying technologies of Ethereum and Ethereum Classic are exactly the same. It is needed to improve ETC wiki and provide more content.
+            <br><br>
+            Payment process: I will wait 5 days after the changes would be made. After the changes would be reviewed and accepted by Wikipedia I will reward the person who made most valuable changes with 5 ETC.<br><br>
+            Uncle rewards: If any other participants would be active enough and make changes too then I will revard them with 1 to 2 ETC.
+            <br><small>NOTE: you should be able to prove yourself as author of changes</small>
+</p>
+</div>
+
+
+</div>
+
+
     </section>
 
 
 
+
+
+<br>
+<br>
     
     <section id="stats">
           <h5 id="data1" align="center" style="font-size: 32px;">Get in touch:</h5>
@@ -229,193 +307,4 @@ $(document).ready(function(){ setInterval("scroll_bg()",500); });
         </div>
       </div>
     </section>
-<!--
-<div id="back-1" style="background-color: ;" class="column large-3 small-6 small-order-1 large-order-1"><p style="color:white; font-size:24px;">The crowdsale ends on:<br>
-
-August 8th, 2017 at<br> 8:00 A.M. UTC</p>
-        </div>
-        <div class="column small-6 small-order-4 large-order-2">
-          <ul>
-            <li>
-          <p style="color:white; font-size:20px;"> <strong>What is DEX token?</strong></p>
-        </li>
-        <li>
-          <p style="color:white; font-size:20px;"> DEX token is an ERC223 standard token. It can be earned only during the ICO. <br>Each participant will receive 1 DEX for 1 contributed ETC.<br>DEX tokens will be used for voting for development proposals after a system for voting is established. Goal is September 1, 2018. <br><br>TOKEN contract address: 0x345a9e6c44d546dae5141700372986c4bb532e3d<br><small>(don't send ETC here, if you want to contribute then you should send ETC into ICO contract)</small></p>
-        </li>
-        </ul>
-        </div>
-        <div class="column large-3 small-6 small-order-3 large-order-3">
-          <p style="color:white; font-size:20px;"> <strong>Token supply.</strong><br><br>DEX tokens will be issued in proportion to the invested money. Total supply depends on the amount contributed. Example: 10,000 ETC contributed = 10,000 DEX Total Supply. </p>
-        </div>
-        <div class="column large-3 small-6 small-order-4 large-order-4">
-          <p style="color:white; font-size:20px;"> <strong>Will DEX token be traded anywhere?</strong><br><br>As I said earlier, a Decentralized Token Exchange is part of my development plan. I can guarantee that it will be traded on my exchange as soon as it is finished.
-</p>
-        </div>
-        <div class="column large-3 small-6 small-order-4 large-order-4">
-          <p style="color:white; font-size:20px;"> <strong>Will you hold your own tokens?</strong><br><br>I would say yes, but I will not earn them initially. I will buy tokens through the ICO like every other participant. I would like to have a vote on many development proposals, of course! 
-</p>
-        </div> -->
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!--
-            <div id="aboutWrap1" class="small-12 med-large-expand columns">
-              <div class="row align-center">
-                <div class="small-12 columns">
-                <h4> Infrastructure improvements </h4>
-                </div>
-              </div>
-              <div id="about1" class="row align-center">
-                <ul>
-                  <li><a href="https://dexaran.github.io/nameservice/#access-account" tabindex="0">DexNS</a></li>
-                  <li><a href="#PRCampaign" tabindex="0">PR Company</a></li>
-                  <li><a href="#codingstandard" tabindex="0">Solidity coding standard</a></li>
-                  <li><a href="#governancesystem" tabindex="0">Governance system</a></li>
-                  <li><a href="https://github.com/Dexaran/DecentralizedEXchange" tabindex="0">Token exchange</a></li>
-                </ul>
-              </div>
-            </div>
-
-    
-            <div id="aboutWrap2" class="small-12 med-large-expand columns">
-              <div class="row align-center">
-                <div class="small-12 columns">
-                <h4> Maintaining compatibility with Ethereum </h4>
-                </div>
-              </div>
-              <div id="about2" class="row align-center">
-                <ul>
-                  <li><a href="https://github.com/ethereumproject/go-ethereum" tabindex="0">GETH Classic</a></li>
-                  <li><a href="https://github.com/ethereum/mist/releases" tabindex="0">Mist Classic</a></li>
-                  <li><a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn" tabindex="0">Port of MetaMask</a></li>
-                  <li><a href="https://github.com/ethereumproject/ECIPs/issues/41" tabindex="0">ECNS</a></li>
-                  <li><a data-open="mosaic" class="mosaicTitle" aria-controls="mosaic" id="7xfg15-reveal" aria-haspopup="true" tabindex="0"></a></li>
-                </ul>
-              </div>
-            </div>
-
-                        <div id="aboutWrap3" class="small-12 med-large-expand columns">
-              <div class="row align-center">
-                <div class="small-12 columns">
-                <h4> Important protocol upgrades </h4>
-                </div>
-              </div>
-              <div id="about1" class="row align-center">
-                <ul>
-                  <li><a href="https://github.com/raiden-network/raiden" tabindex="0">Raiden</a></li>
-                  <li><a href="http://swarm-guide.readthedocs.io/en/latest/introduction.html" tabindex="0">SWARM Classic</a></li>
-                  <li><a href="https://github.com/ethereumproject/ECIPs/issues/44" tabindex="0">Virtual machine</a></li>
-                  <li><a href="https://blog.ethereum.org/2016/12/05/zksnarks-in-a-nutshell/" tabindex="0">zk-SNARKs</a></li>
-                  <li><a data-open="lightwallet" class="lightwalletTitle" aria-controls="lightwallet" id="tklavz-reveal" aria-haspopup="true" tabindex="0"></a></li>
-                </ul>
-              </div>
-            </div></section>
-
-          -->
-    
-    
-    <div id="modals">
-    
-    
-    
-    </div>
-    
-    
-    
-    
-    
-    <!-- 
-    <div id="newsWrap">
-        <div id="newsFeed"></div>
-    </div>
-    
-     -->
-    
-    <!--<footer 
-    style="background: url(milkyway.jpg) 40% 40% repeat; "> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--
-
-
-
-
-
-
-
-    <footer id="galaxyable">
-
-      <div style="background-color: ;" class="row align-center align-middle"><h1>ICO details</h1></div>
-      <div style="background-color: ;" class="row" >
-        <div id="back-1" style="background-color: ;" class="column large-3 small-6 small-order-1 large-order-1">
-          <p style="color:white; font-size:24px;">The crowdsale begins on:<br>
-
-July 8th, 2017 at<br> 8:00 A.M. UTC
-</p></div>
-<div id="back-1" style="background-color: ;" class="column large-3 small-6 small-order-1 large-order-1"><p style="color:white; font-size:24px;">The crowdsale ends on:<br>
-
-August 8th, 2017 at<br> 8:00 A.M. UTC</p>
-        </div>
-        <div class="column small-6 small-order-4 large-order-2">
-          <ul>
-            <li>
-          <p style="color:white; font-size:20px;"> <strong>What is DEX token?</strong></p>
-        </li>
-        <li>
-          <p style="color:white; font-size:20px;"> DEX token is an ERC223 standard token. It can be earned only during the ICO. <br>Each participant will receive 1 DEX for 1 contributed ETC.<br>DEX tokens will be used for voting for development proposals after a system for voting is established. Goal is September 1, 2018. <br><br>TOKEN contract address: 0x345a9e6c44d546dae5141700372986c4bb532e3d<br><small>(don't send ETC here, if you want to contribute then you should send ETC into ICO contract)</small></p>
-        </li>
-        </ul>
-        </div>
-        <div class="column large-3 small-6 small-order-3 large-order-3">
-          <p style="color:white; font-size:20px;"> <strong>Token supply.</strong><br><br>DEX tokens will be issued in proportion to the invested money. Total supply depends on the amount contributed. Example: 10,000 ETC contributed = 10,000 DEX Total Supply. </p>
-        </div>
-        <div class="column large-3 small-6 small-order-4 large-order-4">
-          <p style="color:white; font-size:20px;"> <strong>Will DEX token be traded anywhere?</strong><br><br>As I said earlier, a Decentralized Token Exchange is part of my development plan. I can guarantee that it will be traded on my exchange as soon as it is finished.
-</p>
-        </div>
-        <div class="column large-3 small-6 small-order-4 large-order-4">
-          <p style="color:white; font-size:20px;"> <strong>Will you hold your own tokens?</strong><br><br>I would say yes, but I will not earn them initially. I will buy tokens through the ICO like every other participant. I would like to have a vote on many development proposals, of course! 
-</p>
-        </div>
-      </div>
-    </footer>
-    -->
-
 </body></html>

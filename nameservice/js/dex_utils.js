@@ -12,7 +12,7 @@ var transformToFullName = function (json) {
 
 
 getFunctionSignature = function (name) {
-    return web3.sha3(name).toString('hex').slice(0, 8);
+    return web3.sha3(name).toString('hex').slice(0, 10);
 };
 
 

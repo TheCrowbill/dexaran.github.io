@@ -591,7 +591,10 @@ if (!(contractFunctions[index].outputs.length > 0) || (contractFunctions[index].
           html_TXs += '   /   ';
           html_TXs += tx[j].to;
           html_TXs += '<-----TO ';
-          html_TXs += tx[j].input + ' :_DATA';
+          html_TXs += tx[j].input;
+          if(tx[j].input != '0x') {
+            html_TXs += '  __CONTRACT!';
+          }
           html_TXs += '   <br>   ';
 
           //alert(tx[j].data);

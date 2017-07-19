@@ -590,8 +590,8 @@ if (!(contractFunctions[index].outputs.length > 0) || (contractFunctions[index].
           html_TXs += tx[j].from;
           html_TXs += '   /   ';
           html_TXs += tx[j].to;
-          html_TXs += '<----- TO   ';
-          html_TXs += tx[j].data;
+          html_TXs += '<-----TO ';
+          html_TXs += tx[j].input + ' :_DATA';
           html_TXs += '   <br>   ';
 
           //alert(tx[j].data);
